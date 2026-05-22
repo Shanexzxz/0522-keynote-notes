@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0522 上午 Keynote 会议纪要 · 第一天会议日程</title>
+<style>
+:root {
+  --bg: #0b1020;
+  --bg-2: #111835;
+  --bg-card: #161e3e;
+  --bg-card-2: #1c2447;
+  --accent: #6c8cff;
+  --accent-2: #b07aff;
+  --accent-3: #5fe2c8;
+  --text: #e8ecf6;
+  --text-dim: #a0a8c0;
+  --text-mute: #6c7494;
+  --border: #25305a;
+  --hl: rgba(108, 140, 255, 0.12);
+  --code-bg: #0d1430;
+  --shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(108, 140, 255, 0.18), transparent 60%),
+    radial-gradient(1000px 500px at 100% 0%, rgba(176, 122, 255, 0.15), transparent 60%),
+    var(--bg);
+  min-height: 100vh;
+}
+
+/* === Hero === */
+.hero {
+  padding: 64px 32px 48px;
+  max-width: 1180px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--border);
+}
+.hero .badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  margin: 0 0 12px;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 50%, var(--accent-3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.25;
+}
+.hero .subtitle {
+  color: var(--text-dim);
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+.hero .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.hero .meta-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.hero .meta-item strong {
+  color: var(--text);
+  margin-right: 6px;
+}
+
+/* === Container === */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* === Agenda timeline === */
+.agenda {
+  margin-bottom: 56px;
+}
+.section-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title::before {
+  content: "";
+  width: 4px;
+  height: 22px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border-radius: 2px;
+}
+.timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.timeline-item {
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+.timeline-item:hover {
+  background: var(--bg-card-2);
+  border-color: var(--accent);
+  transform: translateX(2px);
+}
+.timeline-time {
+  color: var(--accent);
+  font-weight: 600;
+  font-feature-settings: "tnum";
+  font-size: 14px;
+}
+.timeline-content .topic {
+  color: var(--text);
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.timeline-content .speaker {
+  color: var(--text-dim);
+  font-size: 13px;
+}
+.timeline-status {
+  align-self: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.status-done {
+  background: rgba(95, 226, 200, 0.15);
+  color: var(--accent-3);
+  border: 1px solid rgba(95, 226, 200, 0.3);
+}
+.status-pending {
+  background: rgba(160, 168, 192, 0.1);
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+}
+
+.flow-note {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background: var(--hl);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+.flow-note strong { color: var(--text); }
+
+/* === Speech card === */
+.speech {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.speech:hover { border-color: rgba(108, 140, 255, 0.4); }
+
+.speech-header {
+  padding: 22px 26px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: center;
+  user-select: none;
+}
+.speech-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 17px;
+  color: white;
+  flex-shrink: 0;
+}
+.speech-title-block .speech-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  line-height: 1.4;
+  color: var(--text);
+}
+.speech-title-block .speech-meta {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.speech-title-block .speech-meta .sep {
+  margin: 0 8px;
+  color: var(--text-mute);
+}
+.toggle-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  transition: transform 0.25s, background 0.2s;
+  flex-shrink: 0;
+}
+.speech.open .toggle-icon {
+  transform: rotate(180deg);
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.speech-body {
+  display: none;
+  padding: 0 26px 28px;
+  border-top: 1px solid var(--border);
+}
+.speech.open .speech-body { display: block; }
+
+/* === Key Takeaways (global) === */
+.takeaways {
+  margin: 8px 0 56px;
+  background: linear-gradient(135deg, rgba(108, 140, 255, 0.10), rgba(176, 122, 255, 0.08));
+  border: 1px solid rgba(108, 140, 255, 0.28);
+  border-radius: 14px;
+  padding: 22px 24px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.takeaways::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+  opacity: 0.85;
+}
+.takeaways-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.takeaways-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.takeaways-title::before {
+  content: "✦";
+  color: var(--accent-2);
+  font-size: 18px;
+}
+.takeaways-subtitle {
+  color: var(--text-mute);
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 8px;
+  letter-spacing: 0;
+}
+.takeaways-status {
+  font-size: 12px;
+  color: var(--text-mute);
+  font-style: italic;
+  transition: color 0.3s;
+}
+.takeaways-status.saved { color: var(--accent-3); }
+.takeaways textarea {
+  width: 100%;
+  min-height: 110px;
+  background: rgba(11, 16, 32, 0.55);
+  border: 1px solid rgba(108, 140, 255, 0.22);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14.5px;
+  line-height: 1.7;
+  resize: vertical;
+  transition: border-color 0.15s, background 0.15s;
+  box-sizing: border-box;
+}
+.takeaways textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(11, 16, 32, 0.75);
+  box-shadow: 0 0 0 3px rgba(108, 140, 255, 0.12);
+}
+.takeaways textarea::placeholder {
+  color: var(--text-mute);
+  font-style: italic;
+}
+
+/* === Tabs === */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin: 18px 0 24px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 4px;
+  width: fit-content;
+}
+.tab {
+  padding: 8px 18px;
+  font-size: 13px;
+  color: var(--text-dim);
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.tab.active {
+  background: var(--accent);
+  color: white;
+}
+.tab:not(.active):hover {
+  color: var(--text);
+  background: var(--bg-card-2);
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* === Markdown content === */
+.md h1, .md h2, .md h3, .md h4 {
+  color: var(--text);
+  margin: 28px 0 12px;
+  line-height: 1.4;
+}
+.md h2 {
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.md h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.md h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-2);
+}
+.md p { margin: 10px 0; color: var(--text); }
+.md ul, .md ol { padding-left: 24px; margin: 10px 0; }
+.md li { margin: 6px 0; color: var(--text); }
+.md li::marker { color: var(--accent); }
+.md strong { color: #fff; font-weight: 600; }
+.md em { color: var(--accent-3); font-style: normal; }
+.md blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--hl);
+  padding: 12px 18px;
+  margin: 16px 0;
+  border-radius: 0 8px 8px 0;
+  color: var(--text-dim);
+}
+.md blockquote p { margin: 4px 0; }
+.md code {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  color: var(--accent-3);
+}
+.md hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 28px 0;
+}
+.md table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+  background: var(--bg-2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.md th, .md td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.md th {
+  background: var(--bg-card-2);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 13px;
+}
+.md tr:last-child td { border-bottom: none; }
+
+.placeholder {
+  padding: 40px 20px;
+  text-align: center;
+  background: var(--bg-2);
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  color: var(--text-dim);
+}
+.placeholder .ph-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+  opacity: 0.6;
+}
+
+/* === Footer === */
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--text-mute);
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+.footer a { color: var(--accent); text-decoration: none; }
+
+/* === Responsive === */
+@media (max-width: 720px) {
+  .hero { padding: 40px 20px 32px; }
+  .hero h1 { font-size: 26px; }
+  .container { padding: 28px 20px 60px; }
+  .timeline-item { grid-template-columns: 1fr; gap: 6px; }
+  .timeline-time { font-size: 13px; }
+  .speech-header { padding: 18px; gap: 12px; }
+  .speech-num { width: 36px; height: 36px; font-size: 14px; }
+  .speech-title-block .speech-title { font-size: 15px; }
+  .speech-body { padding: 0 18px 22px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">FIRST DAY · MORNING KEYNOTE</div>
+  <h1>0522 上午 Keynote 会议纪要</h1>
+  <div class="subtitle">第一天会议日程 · 4 场主题演讲完整纪要</div>
+  <div class="meta">
+    <div class="meta-item"><strong>日期</strong>2026-05-22 上午</div>
+    <div class="meta-item"><strong>地点</strong>宴会厅 A、B、C</div>
+    <div class="meta-item"><strong>进度</strong>4 场已完成 3 场</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ===== 议程 ===== -->
+  <div class="agenda">
+    <h2 class="section-title">上午全部议程</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">09:00–09:40</div>
+        <div class="timeline-content">
+          <div class="topic">别让 AI Coding "看起来很美"——从评测到落地，填坑与新架构实践之路</div>
+          <div class="speaker">茹炳晟 · 复旦大学 CodeWisdom 团队首席技术专家 / 腾讯研究院特约研究员</div>
+        </div>
+        <div class="timeline-status status-done">✓ 已完成</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">09:45–10:25</div>
+        <div class="timeline-content">
+          <div class="topic">Agentic Design Patterns</div>
+          <div class="speaker">Antonio Gulli · Google CTO 办公室工程总监 / 《Agentic 智能体设计模式》英文原书作者</div>
+        </div>
+        <div class="timeline-status status-done">✓ 已完成</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">10:25–10:40</div>
+        <div class="timeline-content">
+          <div class="topic">书籍签售：Agentic 智能体设计模式</div>
+          <div class="speaker">—</div>
+        </div>
+        <div class="timeline-status status-pending">中场</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">10:40–11:20</div>
+        <div class="timeline-content">
+          <div class="topic">AI Coding 的产品演进和研发范式变革——Agent 设计模式、大模型驱动的软件测试、Claude Code 实战、Vibe Coding · AI 编码时代的认知重构</div>
+          <div class="speaker">夏振华 · 阿里云 Qoder 高级技术专家</div>
+        </div>
+        <div class="timeline-status status-done">✓ 已完成</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">11:25–12:05</div>
+        <div class="timeline-content">
+          <div class="topic">快手 AI 研发数字员工平台：从局部 AI 提效到全局 AI 提效</div>
+          <div class="speaker">王硕 · 快手 AI 研发平台负责人</div>
+        </div>
+        <div class="timeline-status status-pending">⏳ 待补</div>
+      </div>
+    </div>
+    <div class="flow-note">
+      <strong>整体脉络：</strong>方法论与新架构（Speech 1）→ 设计模式与工程实践（Speech 2）→ 产品演进与研发范式（Speech 3）→ 企业级规模化落地（Speech 4）
+    </div>
+  </div>
+
+  <!-- ===== Key Takeaways (整体总结) ===== -->
+  <div class="takeaways">
+    <div class="takeaways-header">
+      <div class="takeaways-title">
+        Key Takeaways
+        <span class="takeaways-subtitle">本场会议的整体总结与思考</span>
+      </div>
+      <div class="takeaways-status" id="takeaways-status">尚未编辑</div>
+    </div>
+    <textarea id="takeaways-input" placeholder="在此记录你对本场会议的整体洞察、跨 Speech 的共性观察、或可执行的下一步行动……（自动保存到本地浏览器）"></textarea>
+  </div>
+
+  <!-- ===== Speech 列表 ===== -->
+  <h2 class="section-title">演讲纪要</h2>
+
+  <!-- ===== Speech 1 ===== -->
+  <div class="speech open" id="speech-1">
+    <div class="speech-header" onclick="toggleSpeech('speech-1')">
+      <div class="speech-num">1</div>
+      <div class="speech-title-block">
+        <div class="speech-title">别让 AI Coding "看起来很美"——从评测到落地，填坑与新架构实践之路</div>
+        <div class="speech-meta">
+          <span>茹炳晟</span><span class="sep">·</span>
+          <span>复旦大学 CodeWisdom 首席技术专家 / 腾讯研究院特约研究员</span><span class="sep">·</span>
+          <span>09:00–09:40</span>
+        </div>
+      </div>
+      <div class="toggle-icon">▼</div>
+    </div>
+    <div class="speech-body">
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab(this, 'tab-1-summary')">📝 整理纪要</button>
+        <button class="tab" onclick="switchTab(this, 'tab-1-raw')">🎙️ 录音转写</button>
+      </div>
+
+      <div class="tab-content active md" id="tab-1-summary">
+        <h2>一、AI 在企业能否有效落地，核心是管理水平，不是模型问题</h2>
+        <ul>
+          <li>把模型该有的上下文给到位，模型一定会做。比如让模型理解你的业务、判断你的文档是否支持某个功能——把高版本和低版本两个文档一起扔给模型，再让它确认是否支持，模型是能给出结论的。</li>
+          <li>在企业里能不能有效落地，<strong>核心不是模型问题，而是企业的管理水平。管理才是根本</strong>。</li>
+          <li>对大型传统软件而言，AI 也带来了很多新机会：可以通过 Low-Code 快速构建原型，让需求的探索和启发成本变低。</li>
+          <li>由此带来研发模式的变化：
+            <ul>
+              <li>不再是需求都没确定就让开发实现，实现完再来回改，造成研发资源巨大浪费；</li>
+              <li>而是产品经理通过原型反复体验来确定最终产品形态——<strong>需求的启发和探索由产品经理 + Coding 同学自闭环</strong>，需求明确之后再投入正式研发流程；</li>
+              <li>这样有限的研发资源就可以得到更高效的利用。</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2>二、SD（Software Design）模式在传统软件下的有效边界</h2>
+        <ul>
+          <li>Verbal（口头描述）肯定不靠谱。</li>
+          <li>SD 模式是否靠谱，要看场景：
+            <ul>
+              <li><strong>靠谱</strong>：新功能或代码改动<strong>不依赖 / 很少依赖原有代码</strong>。比如新加一个功能在新的位置上实现，原来通过 API 接口去访问——这种情况 SD 依然有用。</li>
+              <li><strong>不靠谱</strong>：绝大多数传统软件代码像<strong>意大利面条</strong>一样揉在一起，一个改动往往牵涉多处，人都要跑一圈才能找全。这种情况下让 AI 用 SD 模式硬改，<strong>基本上是推卸责任</strong>。</li>
+            </ul>
+          </li>
+          <li>这种模式理论上很优美，落地的时候会举步维艰，根本做不下去——<strong>局限性会被放大</strong>。</li>
+        </ul>
+
+        <h3>唯一判断标准：对"隐性知识"的依赖度</h3>
+        <ul>
+          <li>在传统软件体系下，AI / AI 产品 / Workflow 能不能有效，<strong>唯一判断标准就是：做这件事本身需不需要大量的隐性知识</strong>。</li>
+          <li>如果对隐性知识依赖很高，而这些隐性知识没有被收进去（还停留在平时会议里的口头交流），那么这个任务<strong>一定做不好</strong>。</li>
+          <li>如果对隐性知识依赖很少，或者隐性知识已经被知识工程显性化出来，那么这类业务<strong>一定可以做</strong>。</li>
+        </ul>
+
+        <h2>三、即兴软件：AI 时代的新软件形态</h2>
+        <h3>定义与特征</h3>
+        <ul>
+          <li>传统软件是开发完固定在那里的；<strong>即兴软件</strong>是因为 AI 引擎现在很强，<strong>用户直接提需求 → AI 直接转换成可运行代码 → 通过可运行代码产生结果</strong>。代码本身变成一个不重要的过程性手段。</li>
+          <li>在传统软件开发里，提示词的价值是 "Prompt to Code"——通过提示词转换成代码；而在即兴软件下，<strong>Prompt 本身就是 App</strong>。</li>
+        </ul>
+        <h3>与微信小程序的区别</h3>
+        <ul>
+          <li>微信小程序也叫"用完即走"，但它本身是用<strong>传统方式预先开发好</strong>的，只是运行态用完即走。</li>
+          <li>即兴软件是<strong>开发态和运行态都用完即走</strong>：当场开发、当场上线、当场发布。</li>
+          <li>这是一个完全的新品类，是 Vibe Coding 的主战场。</li>
+        </ul>
+        <h3>满足原本未被满足的增量市场</h3>
+        <ul>
+          <li>例如：今天这个会议想做个抽奖程序，这种软件以前没人帮你做，现在用 Vibe Coding 可以快速搞出来。原本没有被满足的市场，今天可以被快速满足，<strong>这种长尾需求其实是茫茫多的</strong>。</li>
+          <li>不要看不起这个市场。专业人员一开始会判断这玩意儿就是个玩具、就是个 demo。</li>
+          <li>但即兴软件的发展路径会走过三个阶段：<strong>看不上 → 看不起 → 看不懂</strong>。</li>
+        </ul>
+        <h3>颠覆式创新的三大特点 ✅ 即兴软件全部命中</h3>
+        <ul>
+          <li><strong>成本低</strong></li>
+          <li><strong>规模大</strong></li>
+          <li><strong>足够个性化、门槛足够低</strong></li>
+        </ul>
+        <blockquote><p>短视频开始也是看不上、看不起，到最后就看不懂了。即兴软件很有可能打出一个全新的市场空间，原本生态上没有这个生态位的公司会占据一个非常大的生态位。</p></blockquote>
+
+        <h2>四、即兴软件下 AI Coding 的核心能力</h2>
+        <ul>
+          <li>一句话：<strong>凡是可以被验证的，就可以被实现</strong>。</li>
+          <li>用自然语言把需求讲清楚的能力，在这个阶段变得非常重要。<strong>Prompt as Code</strong>——你的提示词能不能讲清楚，会成为一种非常稀缺的生产力。</li>
+          <li>这对人提出了全新挑战，但<strong>不是替代传统的原生开发者</strong>，而是面向一类即兴软件的创造者，类似短视频早期的玩家。</li>
+          <li>不是说不要原生开发了，而是要构建一套<strong>用大语言模型动态创建、动态推理、动态运行</strong>的全新运行态。这样的开发者平台未来可能成长为<strong>行业独角兽</strong>。</li>
+          <li>未来形态想象：你跟平台说一个需求，比如"把图片转成图标"，它直接帮你生成一段代码，拿你的图片转成图标，用完即走。这样的平台可以成为个人助手非常好的入口。</li>
+        </ul>
+
+        <h2>五、即兴软件做大之后：重写还是重构？</h2>
+        <ul>
+          <li>即兴软件一旦被做大做长，同样会陷入复杂性、架构很乱、后期没有掌控感。</li>
+          <li><strong>建议是不做重构，重写就可以了</strong>：
+            <ul>
+              <li>用另一套体系，用标准化的 <strong>DDD（领域驱动设计）</strong> 去做设计；</li>
+              <li>用标准化的软件工程能力去重新实现；</li>
+              <li>而不是在那一坨由 refactoring 造成的东西上重瀑布——ROI 低，最后产出的质量也无法达到原始需求。</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>WorkFlow vs SE：怎么选？</h3>
+        <ul>
+          <li>取决于你的目的：
+            <ul>
+              <li>如果只是<strong>单一目的的个人自用</strong>，怎么用都行，不用考虑太多。</li>
+              <li>如果是<strong>创业团队，原型以后想做大做强</strong>，那就要对代码有掌控感——<strong>这种时候选 SE</strong>。</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>SE 模式最大的坑</h3>
+        <ul>
+          <li>SE 流程是：需求 → Design → Pass → 代码（SDLC）。</li>
+          <li>最大的坑是：<strong>工程师发现代码不符合预期时，忍不住直接修改代码</strong>。</li>
+          <li>直接改代码之后会怎样？
+            <ul>
+              <li>前面的 Pass 里就丢了这个改动；</li>
+              <li>设计文档与代码不一致；</li>
+              <li>以后维护时加载之前的 Design / Pass，发现跟代码不一致，整个体系就乱了。</li>
+            </ul>
+          </li>
+          <li><strong>正确做法</strong>：克制冲动，回到 Pass 层去改 Pass，让 Pass 重新生成代码。</li>
+          <li>类比：写高级语言生成汇编，发现汇编不达标，不能直接改汇编，一定要去改高级语言。</li>
+        </ul>
+
+        <h2>六、AI 原生时代的新三层架构</h2>
+        <h3>旧三层</h3>
+        <blockquote><p>前端（交互）/ 后端（逻辑）/ 数据库（存储）</p></blockquote>
+        <h3>新三层</h3>
+        <ul>
+          <li><strong>顶层 · 意图层</strong>：大模型、提示词工程、上下文工程的事情。</li>
+          <li><strong>中层 · 编排层</strong>：模型能力 + Tools，形成标准化的 Function Calling / Plugin Execution / ReAct 等组合。</li>
+          <li><strong>底层 · 执行层</strong>：确定性的执行。</li>
+          <li>三层的执行过程都会有一套<strong>完整的知识库</strong>做支持。</li>
+        </ul>
+
+        <h3>执行层的关键问题：是确定性执行，还是依然让模型来跑？</h3>
+        <ul>
+          <li>有人会把执行层做成几十步的模型单次调用，每一步都依赖模型，看上去 AI 原生度很高。</li>
+          <li>但这种做法会带来<strong>长程任务的严重衰减</strong>：
+            <ul>
+              <li>假设拆成 20 步，每一步都是模型调用；</li>
+              <li>单次调用准确率 99%；</li>
+              <li>整体准确率 = <strong>0.99 的 20 次方</strong>，衰减非常厉害。</li>
+            </ul>
+          </li>
+          <li><strong>解决方案</strong>：执行层应该<strong>尽量少用非确定性的模型调用，多用确定性的代码</strong>来保证执行效率和结果的可靠性。</li>
+        </ul>
+
+        <h3>确定性代码从哪里来？</h3>
+        <ul>
+          <li><strong>依然是传统软件工程师的领域</strong>，甚至可以是对传统软件的解构再重构。</li>
+          <li>例如 ERP：把 ERP 的能力拆成一个个原子能力——可以是 Skill，也可以是确定性的 SC，哪怕是工具包都行。</li>
+          <li>这些原子能力通过<strong>结构化表达</strong>（在什么场景下能实现什么能力）暴露出来。</li>
+          <li>上层就可以根据用户需求<strong>动态编排成新的应用流程</strong>——编排可以用传统编排语言，调用确定性执行层。</li>
+          <li>编排出来的 Plan 也可以通过结构化的方式表达和<strong>结构化验证</strong>，形成一种更高阶的智能。</li>
+          <li>这意味着大量传统的 ERP、SaaS 软件可能面临结构上的重构。比如一个大型旅游网站，可能拆成很多原子能力，每个原子能力确定性执行；面对客户的不同需求，动态编排一个流程出来去调确定性执行层。</li>
+        </ul>
+
+        <h3>知识层 / 本体论 / 生成式 UI</h3>
+        <ul>
+          <li>知识这一层讲得很泛，但 PPT 低配化模式将会成为一个非常关键的入口。</li>
+          <li><strong>本体论（Ontology）</strong>：对整个领域建模最好的一种结构化方法，本身就是结构化的。</li>
+          <li><strong>生成式 UI / 交互</strong>：每次流程编排是动态的，界面就不需要固定。基于当场确定的用户需求，当场生成需要的界面，去完成用户交互即可。</li>
+        </ul>
+
+        <h2>七、行动倡议 & 资源推荐</h2>
+        <h3>AI 智效专员</h3>
+        <ul>
+          <li>把 AI 嵌入到整个软件研发的 <strong>10 个阶段</strong>里，研究 AI 应用以及由此可能带来的研发范式变革。</li>
+          <li>被研发的软件包括：<strong>传统软件 + 即兴软件 + 智能体软件</strong>。</li>
+          <li>底层需要有一套 <strong>AI 工程能力底座</strong>做整体支撑。</li>
+          <li><strong>正在征集</strong>：大量行业案例、成功经验、洞察与思考。</li>
+        </ul>
+        <h3>推荐文章 / 公众号</h3>
+        <ul>
+          <li>公众号最近一篇是 <strong>《如何用大模型搞垮一个团队》</strong>，总结了企业落地大语言模型的 <strong>20 个常见的错误范式</strong>，正话反说。</li>
+          <li>5-6 年前还写过一篇 <strong>《如何用测试搞垮一个团队》</strong>，全网累计 10w+ 阅读。</li>
+        </ul>
+        <h3>推荐书籍：《AI Agent 权威指南》</h3>
+        <ul>
+          <li>英文版作者 <strong>韩东颖</strong> 当天来到现场，会后现场签售。</li>
+          <li>这是除黄家老师那本之外，国内的第一本中文版。</li>
+          <li>介绍了 <strong>21 个主流的、单点的 Agent 设计模式</strong>，单点本身并不复杂，但通过<strong>横向 + 纵向交织组合</strong>会形成非常新的玩法。</li>
+          <li>今天的 Agent 主要是要解决：<strong>隔离、错误隔离、确定性、约束系统</strong> 等基础问题，类似一套基础设施。</li>
+          <li>如果没有这些 Agent 设计模式 + 细粒度管理模式作为支撑，构建复杂 Agent 系统会非常困难。</li>
+        </ul>
+      </div>
+
+      <div class="tab-content md" id="tab-1-raw">
+        <blockquote>
+          <h4>AI 落地的核心是管理水平，不是模型问题</h4>
+          <p>把模型该有的上下文给到位，模型一定会做。比如让模型理解你的业务、判断你的文档是否支持某个功能——你的文档可能低版本不支持、高版本支持，把两个文档一起扔给模型，再让它确认是否支持，模型是能给出结论的。</p>
+          <p>所以 AI 在企业里能不能有效落地，<strong>核心不是模型问题，而是企业的管理水平。管理才是根本。</strong></p>
+          <p>对大型传统软件而言，AI 也带来了很多新机会：可以通过 Low-Code 快速构建原型，让需求的探索和启发成本变低。研发模式也会随之改变——不再是需求都没确定就让开发实现，实现完再来回改、造成研发资源巨大浪费；而是产品经理通过原型反复体验来确定最终产品形态。<strong>需求的启发和探索由产品经理 + Coding 同学自闭环</strong>，需求明确之后再投入正式研发流程，这样有限的研发资源就可以得到更高效的利用。</p>
+
+          <h4>SD 模式在传统软件下的有效边界</h4>
+          <p>Verbal（口头描述）肯定不靠谱。SD 是否靠谱要看场景：如果你的新功能或代码改动不依赖、或很少依赖原有代码——比如新加一个功能在新位置实现、原本通过 API 接口去访问——这种情况 SD 依然有用。</p>
+          <p>但绝大多数传统软件代码就像<strong>意大利面条</strong>一样揉在一起，一个改动往往牵涉多处，人都要跑一圈才能找全。这种情况下让 AI 用 SD 模式硬改，<strong>基本上是推卸责任</strong>。这种模式理论上很优美，落地的时候会举步维艰，根本做不下去——<strong>局限性会被放大</strong>。</p>
+          <p>判断 AI / AI 产品 / Workflow 在传统软件体系下能不能有效，<strong>唯一标准是：做这件事本身需不需要大量的隐性知识</strong>。如果对隐性知识依赖很高，而这些隐性知识没有被收进去（还停留在平时会议的口头交流里），那么这个任务一定做不好。如果对隐性知识依赖很少，或者隐性知识已经被知识工程显性化出来，那么这类业务一定可以做。</p>
+
+          <h4>即兴软件：AI 时代的新软件形态</h4>
+          <p>接下来聊聊<strong>即兴软件</strong>，它是软件的一个新形态。传统软件是开发完固定在那的；而即兴软件，因为 AI 引擎现在很强了，你直接提需求，它直接帮你转换成可运行的代码，通过可运行代码产生你要的结果——代码就变成了一个不重要的过程性手段。</p>
+          <p>在传统软件开发里，提示词的价值叫 "Prompt to Code"——通过提示词转换成代码；而在即兴软件下，<strong>Prompt 本身就是 App</strong>。</p>
+          <p>跟微信小程序对比一下：微信小程序也"用完即走"，但小程序本身是用<strong>传统方式预先开发好</strong>的，只是运行态用完即走。而即兴软件是<strong>开发态和运行态都用完即走</strong>——当场开发、当场上线、当场发布。这是一个完全的新品类，是 Vibe Coding 的主战场。</p>
+          <p>这种软件满足了原本未被满足的增量市场。比如今天这个会议，我们想做个抽奖程序——这种软件以前没人帮你做，现在用 Vibe Coding 可以快速搞出来。原本没有被满足的市场，今天可以被快速满足，<strong>这种长尾需求其实是茫茫多的</strong>。</p>
+          <p>专业人员一开始会觉得这玩意儿就是个玩具、就是个 demo，能跟生产环境里的代码相比吗？但即兴软件的发展路径会走过三个阶段：<strong>看不上 → 看不起 → 看不懂</strong>。很多颠覆式创新都符合三个特点：成本低、规模大、足够个性化、门槛足够低——而即兴软件全部命中。如果觉得这个判断不靠谱，想想短视频——短视频开始也是看不上、看不起，到最后就看不懂了。<strong>即兴软件很有可能打出一个全新的市场空间，原本生态上没有这个生态位的公司会占据一个非常大的生态位。</strong></p>
+
+          <h4>即兴软件下 AI Coding 的核心能力</h4>
+          <p>一句话总结：<strong>凡是可以被验证的，就可以被实现</strong>。用自然语言把需求讲清楚的能力在这个阶段变得非常重要——<strong>Prompt as Code</strong>，你的提示词能不能讲清楚，会成为一种非常稀缺的生产力。</p>
+          <p>这并不是要替代传统的原生开发者，而是面向一类即兴软件的创造者，类似短视频早期的玩家。也不是说不要原生开发了，而是要构建一套<strong>用大语言模型动态创建、动态推理、动态运行</strong>的全新运行态——这样的开发者平台未来可能成长为<strong>行业独角兽</strong>。</p>
+          <p>未来想象一下：你跟平台说一个需求——"把图片转成图标"——它直接帮你生成一段代码，拿你的图片转成图标，用完即走。这样的平台可以成为个人助手非常好的入口。</p>
+
+          <h4>即兴软件做大之后：重写还是重构？</h4>
+          <p>即兴软件如果做成比较大型的系统，同样会陷入复杂性、架构混乱、后期失去掌控感。这时要做重构吗？<strong>我们的建议是不做重构，重写就可以了</strong>——用另一套体系、用标准化的 <strong>DDD（领域驱动设计）</strong>去做设计，用标准化的软件工程能力去重新实现，而不是在那一坨 refactoring 的东西上重瀑布。因为 ROI 低，最后产出的质量也无法达到原始需求。</p>
+          <p>另外，即兴软件应该用 Workflow 还是 SE 方式？取决于你的目的：单一目的的个人自用怎么用都行；但如果你是创业团队、原型以后想做大做强——哪怕这个小锤子以后想做大做强——那就要对代码有掌控感，<strong>这种时候选 SE</strong>。</p>
+          <p>SE 模式有很多坑。SE 流程是：需求 → Design → Pass → 代码（SDLC）。<strong>最大的坑是：工程师发现代码不符合预期时，忍不住直接修改代码。</strong> 这种做法不允许——一旦直接改代码，前面 Pass 里就丢了这个改动，设计文档跟代码就不一致了；以后维护时加载之前的 Design / Pass，发现跟代码对不上，整个体系就乱了。</p>
+          <p>正确做法是<strong>克制冲动，回到 Pass 层去改 Pass，让 Pass 重新生成代码</strong>。这就好比写高级语言生成汇编，发现汇编不达标——直接改汇编是不可能的，一定要去改高级语言。</p>
+
+          <h4>AI 原生时代的新三层架构</h4>
+          <p>AI 原生软件本质上是什么？以前讲的旧三层是<strong>前端、后端、数据库</strong>（交互、逻辑、存储）。在 AI 原生时代，我们会迎来新三层：</p>
+          <ul>
+            <li><strong>顶层 · 意图层</strong>：大模型、提示词工程、上下文工程的事情。</li>
+            <li><strong>中层 · 编排层</strong>：模型能力 + Tools，组合成 Function Calling、Plugin Execution、ReAct 等标准化形式。</li>
+            <li><strong>底层 · 执行层</strong>：确定性的执行。</li>
+          </ul>
+          <p>这三层的执行过程都会有一套<strong>完整的知识库</strong>做支持。</p>
+          <p>关键问题来了：执行层是确定性执行，还是依然让模型来跑？很多人会把执行层做成几十步的模型单次调用、生成动态 Workflow，每一步又是模型执行。这种做法 AI 原生度看上去很高，但会带来<strong>长程任务的严重衰减</strong>——假设拆成 20 步、每一步都是模型调用，单次准确率即便高达 99%，整体准确率也只有 0.99 的 20 次方，衰减非常厉害。</p>
+          <p>所以执行层应该<strong>尽量少用非确定性的模型调用，多用确定性的代码</strong>来保证执行效率和结果的可靠性。确定性的代码从哪来？<strong>依然是传统软件工程师的领域</strong>，甚至可以是对传统软件的解构再重构。比如 ERP——把 ERP 的能力拆成一个个原子能力，可以是 Skill，也可以是确定性的 SC，哪怕是工具包都行。这些原子能力通过<strong>结构化表达</strong>（在什么场景下能实现什么能力）暴露出来，上层就可以根据用户需求<strong>动态编排成新的应用流程</strong>，去调确定性执行层。编排出来的 Plan 也可以通过结构化方式表达和验证，形成一种更高阶的智能。</p>
+          <p>这意味着大量传统的 ERP、SaaS 软件可能面临结构上的重构。比如一个大型旅游网站，可能拆成很多原子能力、每个原子能力确定性执行；面对客户的不同需求，动态编排一个流程出来去调确定性执行层。</p>
+          <p>知识层这块讲得很泛，但 PPT 低配化模式将会成为一个非常关键的入口。<strong>本体论（Ontology）是对整个领域建模最好的一种结构化方法，它本身就是结构化的</strong>。我们也会有生成式的 UI / 交互——每次流程编排是动态的，界面就不需要固定，基于当场确定的用户需求，当场生成需要的界面去完成用户交互即可。</p>
+
+          <h4>行动倡议与资源推荐</h4>
+          <p>最后说几件事。第一，我们有一个 <strong>AI 智效专员</strong>计划——把 AI 嵌入到整个软件研发的 10 个阶段，研究 AI 应用以及由此可能带来的研发范式变革。被研发的软件可能是传统软件、即兴软件，也可能是智能体软件。底层需要有一套 AI 工程能力的底座做整体支撑。我们正在征集大量行业案例、成功经验、洞察与思考，鼓励大家踊跃参与。</p>
+          <p>第二，关注一下我的公众号。最近写的一篇叫 <strong>《如何用大模型搞垮一个团队》</strong>，总结了企业落地大语言模型的 20 个常见错误范式，正话反说。5-6 年前还写过一篇 《如何用测试搞垮一个团队》，全网累计 10w+ 阅读。</p>
+          <p>第三，重点推荐这本书 ——《<strong>AI Agent 权威指南</strong>》。英文版作者韩东颖今天也来到了现场，会后会有现场签售。这是除黄家老师那本之外，国内的第一本中文版，介绍了 21 个主流的、单点的 Agent 设计模式。这些单点设计模式本身并不复杂，但<strong>横向、纵向交织组合起来，会形成一些非常新的玩法</strong>。今天的 Agent 主要要解决的是<strong>隔离、错误隔离、确定性、约束系统</strong>等基础问题——如果没有这套 Agent 设计模式 + 细粒度管理模式作为支撑，构建复杂 Agent 系统会非常困难。</p>
+        </blockquote>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== Speech 2 ===== -->
+  <div class="speech" id="speech-2">
+    <div class="speech-header" onclick="toggleSpeech('speech-2')">
+      <div class="speech-num">2</div>
+      <div class="speech-title-block">
+        <div class="speech-title">Agentic Design Patterns</div>
+        <div class="speech-meta">
+          <span>Antonio Gulli</span><span class="sep">·</span>
+          <span>Google CTO Office · Author of <em>Agentic Design Patterns</em></span><span class="sep">·</span>
+          <span>09:45–10:25</span>
+        </div>
+      </div>
+      <div class="toggle-icon">▼</div>
+    </div>
+    <div class="speech-body">
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab(this, 'tab-2-summary')">📝 Summary Notes</button>
+        <button class="tab" onclick="switchTab(this, 'tab-2-raw')">🎙️ Raw Transcript / 录音转写</button>
+      </div>
+
+      <div class="tab-content active md" id="tab-2-summary">
+        <h2>1. Background &amp; How the Agent Design Work Started</h2>
+        <ul>
+          <li>Works in Google's Office of the CTO — the team's mandate is to identify new technologies and try to transform them into products very early on.</li>
+          <li>The agent design work started about <strong>one year to one year and a half ago</strong>, when Google was about to release a new <strong>Agent SDK</strong> (before the previous Google I/O — not the most recent one).</li>
+          <li>At that time, around <strong>5 agents were developed in parallel</strong>, <strong>3 written by Antonio himself</strong>, in three different domains.</li>
+          <li>A lot of effort was spent tracking these agents. The driving question:
+            <blockquote><p>"What are the common elements here?"</p></blockquote>
+          </li>
+        </ul>
+        <h3>Reconciling fast-moving AI with software engineering principles</h3>
+        <ul>
+          <li>"AI is moving at the speed of light" — but many software engineering principles applied before still apply today.</li>
+          <li>The goal: <strong>translate those principles into a number of patterns</strong> that can be used to make project development more robust.</li>
+        </ul>
+        <h3>Iterative writing &amp; community feedback</h3>
+        <ul>
+          <li>Started writing notes about <strong>1 year and 6 months ago</strong>.</li>
+          <li>Published a new chapter every couple of weeks, while moving between Venice and Italy.</li>
+          <li>Community response: <strong>more than 1 million people</strong> mentioned the book / notes.</li>
+        </ul>
+        <h3>Critical decision: support multiple frameworks</h3>
+        <ul>
+          <li>Decided to use <strong>all the most popular frameworks</strong>: GraphQL, Pure AI, API K.</li>
+          <li>For every chapter, every framework gets samples; a <strong>GitHub repository</strong> is provided.</li>
+        </ul>
+        <h3>Purpose of the book</h3>
+        <ul>
+          <li>"I wrote this book for humans" — a reference you can consult to find the solution to a particular problem.</li>
+          <li>The community took the book and transformed it into <strong>a set of skills</strong>.</li>
+          <li>On <strong>Kaggle</strong>, people are using the content of the book to code <strong>through skills</strong>.</li>
+        </ul>
+
+        <h2>2. Quick Overview of the Last Two Years</h2>
+        <h3>Two years ago — LLMs trained with reward models</h3>
+        <ul>
+          <li>Introduced two big things: <strong>Non-determinism</strong> + <strong>Reasoning on data</strong>.</li>
+          <li>Reasoning allows <strong>adapting to data</strong>, dealing with situations not planned at the beginning.</li>
+          <li>This also means you need <strong>statistical testing</strong>.</li>
+        </ul>
+        <h3>Context-centric large models</h3>
+        <ul>
+          <li>Large models are really <strong>about being context-driven</strong>.</li>
+          <li>The prompt <strong>conditions the result</strong>.</li>
+          <li>Injecting data into the context <strong>dynamically</strong> is very important.</li>
+        </ul>
+        <h3>The shift to agentic systems — tool use</h3>
+        <ul>
+          <li>The real change came when models started to <strong>use tools</strong> to interact with the external environment.</li>
+          <li>Every time a new tool is introduced, the model has to decide <strong>when to use that tool</strong> — essentially <strong>symbolic learning</strong>.</li>
+        </ul>
+        <h3>Latest step — collections of collaborating agents</h3>
+        <ul>
+          <li>Instead of a single agent, you now have a <strong>collection of agents collaborating</strong>.</li>
+        </ul>
+
+        <h2>3. The 21 Design Patterns — Selected Highlights</h2>
+        <h3>Prompt Chaining</h3>
+        <p>A model plays <strong>different roles in a chain</strong> — planner, coder, verifier.</p>
+        <h3>Routing</h3>
+        <ul>
+          <li>Select among multiple models based on <strong>cost</strong> or <strong>performance</strong> reasoning.</li>
+          <li>Many models like <strong>Gemini, OpenAI</strong> internally use <strong>reranking</strong>.</li>
+        </ul>
+        <h3>Model Context Protocol (MCP)</h3>
+        <ul>
+          <li>Introduced by Anthropic; effectively a standard for accessing external tools.</li>
+          <li>"I strongly encourage you to use this Model Context Protocol."</li>
+        </ul>
+        <h3>Visual presentation style — inspired by the GoF book</h3>
+        <p>Adopted <strong>visual explanations</strong> for every chapter.</p>
+        <h3>Fan-out + Selection</h3>
+        <p>One request goes to multiple agents, the <strong>best one is selected</strong>.</p>
+        <h3>Parallelization + Aggregation</h3>
+        <p>Multiple agents execute <strong>in parallel</strong>, then results are aggregated.</p>
+        <h3>Inter-agent Communication</h3>
+        <p>Communication between agents is essential.</p>
+        <h3>Critique Pattern</h3>
+        <ul>
+          <li>One model produces a result; <strong>another model critiques</strong> that result.</li>
+          <li>Increases quality and <strong>keeps mistakes under control</strong> in workflows with many parallel objects.</li>
+        </ul>
+        <h3>Reflection Pattern</h3>
+        <p>A prompt is sent to a model; <strong>another model provides feedback</strong> to the first.</p>
+        <h3>Tool Use — the last ingredient</h3>
+        <p>Using tools to interact with the external world is the <strong>last ingredient</strong>.</p>
+
+        <h2>4. Specialization over Monolithic Agents</h2>
+        <ul>
+          <li><strong>Specialize a model for every task</strong>.</li>
+          <li>Mantra: <strong>"Do one thing and do this thing well."</strong></li>
+          <li>Every contribution must be <strong>evaluated</strong>.</li>
+          <li>Better to have specialized agents than a single agent performing multiple tasks.</li>
+        </ul>
+        <h3>Trading-environment example</h3>
+        <ul>
+          <li>Roles: <strong>fundamentals</strong>, <strong>fundamental markets</strong>, <strong>sentiment analysis</strong>, <strong>dynamics of a particular company</strong>.</li>
+          <li>Combining specialized roles <strong>improves the quality of results</strong>.</li>
+        </ul>
+
+        <h2>5. H2A — Agent-to-Agent Communication</h2>
+        <ul>
+          <li><strong>H2A</strong>: Google open-sourced agent-to-agent communication protocol.</li>
+          <li>Each agent can <strong>dynamically discover other agents</strong>.</li>
+          <li>Every agent <strong>declares its capabilities through an Agent Card</strong> (e.g., currency conversion).</li>
+          <li>Other agents can query for capability-specific agents.</li>
+        </ul>
+        <h3>Dynamic hiring of agents</h3>
+        <p>Agents can be <strong>"hired" dynamically</strong> for specific roles, <strong>without a predefined structure</strong>.</p>
+        <h3>Composite workflow example</h3>
+        <p>Three sequential agents (1, 2, 3) running in parallel → outputs feed into a sequential pipeline → larger agent combines and solves the task.</p>
+
+        <h2>6. Community Contributions</h2>
+        <ul>
+          <li>Community is <strong>maintaining a collection of design patterns</strong> and suggesting new ones.</li>
+          <li><strong>Stefano Fonta</strong> will likely respond with a <strong>second edition</strong>.</li>
+          <li>Reference to a significant production effort in <strong>2021</strong> with <strong>300+ different projects</strong>.</li>
+        </ul>
+
+        <h2>7. Key Learnings</h2>
+        <h3>Personal moment of realization (around July–August 2025)</h3>
+        <ul>
+          <li>Started writing code at <strong>6–8 years old</strong>, in <strong>Assembler</strong>, to call video games.</li>
+          <li>Languages: Pascal, Java, C, C++, Python, Rust, Scala.</li>
+          <li>Realized: <strong>"I can use AI to develop code on my behalf."</strong> Initially skeptical: "How can I control them?"</li>
+        </ul>
+        <h3>The compiler analogy</h3>
+        <ul>
+          <li>Developers trust compilers translating C++ to Assembler <strong>without checking the output</strong>.</li>
+          <li>Compiler is a <strong>translator</strong> — Python to assembly.</li>
+          <li>Question: <strong>How to get the same level of confidence with AI-generated code?</strong></li>
+        </ul>
+        <h3>Backcoding &amp; speed–quality trade-off</h3>
+        <ul>
+          <li>Around <strong>September 2025</strong>, community started talking about a <strong>"backcoding" movement</strong>.</li>
+          <li>Reframing: <strong>"How can I trust that the output is valuable?"</strong></li>
+          <li>Trade-off: <strong>maintain speed but still maintain quality and trust</strong>.</li>
+        </ul>
+
+        <h3>Learning #1 — State-Driven Development (SDD)</h3>
+        <ul>
+          <li>Most important learning. Not entirely new — for years we've been writing specs.</li>
+          <li>Translation from spec to code was <strong>losing aspects</strong>.</li>
+        </ul>
+        <h4>Reference: 1994 MIT manifesto</h4>
+        <ul>
+          <li>A professor at MIT named <strong>Naomi Klein</strong> (as stated by the speaker) wrote a manifesto in <strong>1994</strong>: "One day we will write software [in human language]."</li>
+          <li>The book is dedicated to her.</li>
+        </ul>
+        <h4>Best path to quality</h4>
+        <ul>
+          <li><strong>Start from a well-defined, very clear spec from the very beginning.</strong></li>
+          <li>A better spec → improved model output quality.</li>
+          <li><strong>Don't write the spec entirely by yourself</strong> — start it, then ask AI to refine.</li>
+          <li>Write a high-level roadmap and high-level specs, then ask AI to refine.</li>
+        </ul>
+
+        <h3>Learning #2 — A Serious Test Plan is Now Essential</h3>
+        <ul>
+          <li>The test plan is the <strong>only way to maintain awareness and control</strong> of the project's output.</li>
+          <li>Architects can now help write and implement the test plan.</li>
+          <li>Tests are <strong>way more important than before</strong>.</li>
+        </ul>
+        <h4>Mandate</h4>
+        <p>Make sure your test plan is robust and <strong>implemented by R&amp;D at the same time</strong> as development.</p>
+        <h4>Documentation becomes free</h4>
+        <ul>
+          <li>Once you have spec + tests, AI can write the documentation.</li>
+          <li>"I don't write documentation anymore."</li>
+          <li>Documentation reflects the quality of the code.</li>
+        </ul>
+
+        <h2>8. Agent Design Principles — The Maze Metaphor</h2>
+        <ul>
+          <li>Agents are like going in a maze and converging to a certain point — but <strong>it's up to you to define the walls of this maze</strong>.</li>
+          <li>Define the <strong>constraints</strong>.</li>
+        </ul>
+        <h3>Three layers of control</h3>
+        <ol>
+          <li><strong>Provide context / information.</strong></li>
+          <li><strong>Sandboxed execution</strong> — don't let agents go rogue before they're tested.</li>
+          <li><strong>Feedback</strong> — agents must provide feedback on the environment so they adapt. <strong>A permanent cycle.</strong></li>
+        </ol>
+        <blockquote><p>Agents need to learn on the job.</p></blockquote>
+
+        <h2>9. Evolution of Focus</h2>
+        <table>
+          <thead><tr><th>Time</th><th>Focus</th></tr></thead>
+          <tbody>
+            <tr><td>2 years ago</td><td><strong>Prompt Engineering</strong></td></tr>
+            <tr><td>1 year ago</td><td><strong>Context Engineering</strong></td></tr>
+            <tr><td>Next 6–12 months</td><td><strong>AI Messaging</strong> — defining constraints and ensuring safety</td></tr>
+          </tbody>
+        </table>
+        <h3>Open questions in AI Messaging</h3>
+        <ul>
+          <li>What are the right tools?</li>
+          <li>How can I have this agent running in a sandbox?</li>
+          <li>How can I provide long-term reliability?</li>
+        </ul>
+
+        <h2>10. The Second Book — Practical Agent Deployment</h2>
+        <ul>
+          <li>A <strong>second book</strong> continuing the first, focused on <strong>deploying agents in real environments</strong>, chapter by chapter.</li>
+          <li>Starts from prompts, then tools.</li>
+          <li><strong>Key new concept — Skills</strong>: enable agents to <strong>dynamically learn what they need to do</strong>, including <strong>logging</strong> and <strong>learning from a corpus</strong>.</li>
+          <li>To contribute: GitHub repository or comments on the book.</li>
+        </ul>
+
+        <h2>11. Q&amp;A</h2>
+        <h3>Q1 — Can AI handle verification?</h3>
+        <ul>
+          <li>Power = <strong>Non-deterministic generation</strong> (LLM) + <strong>Deterministic verification</strong> (run code, check results).</li>
+          <li>Verification can also be <strong>automated by AI</strong>.</li>
+          <li><strong>Human defines what to verify</strong>; <strong>AI implements the test</strong>.</li>
+        </ul>
+        <h3>Q2 — Lessons for traditional testing knowledge</h3>
+        <ol>
+          <li><strong>Specs matter more than ever.</strong> Skipping specs is no longer acceptable.</li>
+          <li><strong>Test coverage standards must be raised.</strong> Old best practice (60%) is no longer enough.</li>
+          <li><strong>Even with parallelism, guarantee order.</strong> Running 5–7 processes in parallel — <strong>guaranteeing order is fundamental</strong>.</li>
+        </ol>
+        <blockquote><p>Specs were important before, but even more so now. Tests were important before, but even more so now.</p></blockquote>
+
+        <h3>Q3 — Bridging the gap from agent demos to production</h3>
+        <table>
+          <thead><tr><th>Time</th><th>% of new code at Google written with AI</th></tr></thead>
+          <tbody>
+            <tr><td>~1 year before</td><td><strong>20–25%</strong></td></tr>
+            <tr><td>Then</td><td><strong>50%</strong></td></tr>
+            <tr><td>Google Next, a few weeks before this talk</td><td><strong>75%</strong></td></tr>
+          </tbody>
+        </table>
+        <h4>Key shifts</h4>
+        <ol>
+          <li><strong>Code review is fundamental</strong> — way more reviews than before; AI can help.</li>
+          <li><strong>For every PR</strong>, three steps augmented by AI: <strong>Specification + Tests + Reviews</strong>.</li>
+          <li>Leverage AI to support <strong>all existing software-engineering best practices</strong>.</li>
+        </ol>
+
+        <h3>Q4 — Agentic patterns vs traditional (GoF) design patterns?</h3>
+        <ul>
+          <li>The <strong>GoF book</strong> describes the <strong>deterministic side</strong> of software engineering.</li>
+          <li>Agents/LLMs add a <strong>non-deterministic side</strong> — multiple probabilistic agents.</li>
+          <li>The two are <strong>complementary</strong>.</li>
+          <li>"Recommend considering the book of Gamma every time you want to write high-quality code — and also consider my book."</li>
+        </ul>
+
+        <h3>Q5 — % of Google code written by AI; future of testing</h3>
+        <ul>
+          <li>At <strong>Google Cloud Next</strong>: <strong>75% of any new software at Google is written with AI</strong>.</li>
+          <li>Engineers now define specs and goals. <strong>Implementation is no longer the bottleneck.</strong></li>
+        </ul>
+        <h4>Software engineering's four phases</h4>
+        <ol>
+          <li><strong>Specification</strong></li>
+          <li><strong>Implementation</strong> — becoming easier</li>
+          <li><strong>Testing</strong></li>
+          <li><strong>Deployment</strong> — also becoming easier (Kubernetes)</li>
+        </ol>
+        <ul>
+          <li><strong>Spec and testing are where human contribution is crucial.</strong></li>
+          <li><strong>"Testing is becoming the most important profession right now."</strong></li>
+        </ul>
+      </div>
+
+      <div class="tab-content md" id="tab-2-raw">
+        <blockquote>
+          <h4>Background</h4>
+          <p>Thank you so much. It's a pleasure to be here, to see so many people. We arrived in Shenzhen yesterday — it's a beautiful and modern city. Today, I'm going to talk about the work we've done on designing agents.</p>
+          <p>I work for Google, in the <strong>Office of the CTO</strong>. Essentially what we do at Google is try to find new technologies and transform them into products very early on. About myself: I have been across many parts for 10 years, and I've been working with engineers in AI for a long time. Before that, I was working in search. This is actually my third time in China; the first two times I went to Beijing.</p>
+
+          <h4>How the Agent Design Work Started</h4>
+          <p>My experience with designing agents started about <strong>one year and a half ago</strong>, when at Google we were about to release the new Agent SDK — this was before the previous Google I/O. Back then, we developed five agents in parallel; three of them I wrote myself, in different domains. There was a lot of work tracking these agents. So I was asking myself: <strong>"What are the common elements here?"</strong></p>
+          <p>A lot of people are saying that AI is moving at the speed of light, which is true. But at the same time, many of the software engineering principles that were applied before — can they still apply today? So I asked: "Can this be translated into a number of patterns that can be used to make project development more robust, so that you can predict what the outcomes are?" I started this experience about <strong>one year and six months ago</strong>, publishing a new chapter on my notes every couple of weeks while moving between Venice and Italy.</p>
+          <p>The response from the community was amazing. <strong>More than one million people</strong> mentioned the book and the notes. I took a critical decision: instead of focusing only on a single framework, I decided to use all the most popular frameworks at that moment — GraphQL, Pure AI, API K. For every chapter and every framework, there are samples — there's a GitHub repository where you can go and use the code.</p>
+          <p>Why did I write this book? <strong>I wrote this book for humans</strong> — so you can consult it for the solution to a particular problem. But what happened next was that the community took the book and transformed it into <strong>a set of skills</strong>. So at this moment on Kaggle, people are using the content of the book to code through skills — large models are consuming these skills and producing code based on them.</p>
+
+          <h4>Quick Overview of the Last Two Years</h4>
+          <p>When we talk about the design patterns, let me give you a quick overview of what happened over the last two years. <strong>Two years ago</strong>, we got a new kind of LLM trained using a reward model. The idea: introduce an LLM that on one side adopts <strong>some non-determinism</strong>, and on the other side can <strong>reason on the data</strong>. That was a big step forward compared with traditional software development, because reasoning allows for adapting to data — you can deal with situations that were not planned at the beginning. Of course, this also means you need <strong>statistical testing</strong>.</p>
+          <p>The second point — for me, coming from search, this was the real "oh, now something is happening" moment: <strong>large models are really about being context-driven</strong>. When you provide the prompt, you condition the result. Injecting data into the context dynamically is very important.</p>
+          <p>The real change toward an agentic world came when these models started not just reasoning, but also <strong>using tools</strong> — interacting with the external environment. Every time you introduce a new tool, the model has to decide when to use that tool — this is essentially <strong>symbolic learning</strong>. The latest step, which essentially started when I wrote the book, is that instead of having a single agent, you now have a <strong>collection of agents collaborating</strong>. Robin presented a very nice slide showing that a single architect gives a certain level of productivity, but a collection of architects collaborating together gives a significant boost.</p>
+
+          <h4>The 21 Design Patterns — Selected Highlights</h4>
+          <p>The book is a collection of <strong>21 patterns</strong>, each with a dedicated chapter. Let me mention a few:</p>
+          <ul>
+            <li><strong>Prompt Chaining</strong> is the simplest case — you have a model playing different roles in a chain: planner, coder, verifier. The roles are specified through simple prompts.</li>
+            <li><strong>Routing</strong>: instead of a single model, you have a way to select among multiple models. Very beneficial for cost or performance reasoning. Many online models like Gemini and OpenAI internally use reranking.</li>
+            <li><strong>Model Context Protocol (MCP)</strong>, introduced by Anthropic, has now essentially become a standard way to access external tools. <strong>I strongly encourage you to use MCP.</strong></li>
+          </ul>
+          <p>I adopted a similar approach to the GoF book — for every chapter, every introduction, there's a visual explanation.</p>
+          <p>Other patterns: <strong>fan-out</strong> (one request goes to multiple agents and the best is selected); <strong>parallelization</strong> (multiple agents execute in parallel and outputs are aggregated). One especially important pattern is <strong>communication between agents</strong>. And then the <strong>critique pattern</strong> — probably one of the most important — where one model produces a result and another model produces a critique of it. <strong>The interaction between these two equates to increasing the quality of the result</strong>, and is also a way to keep mistakes under control in workflows with many parallel models.</p>
+          <p>The <strong>reflection pattern</strong>: a prompt is sent to one model, then another model provides feedback to the first. The interaction increases production quality. The last ingredient of our recipe is <strong>using tools</strong> to interact with the external world.</p>
+
+          <h4>Specialization over Monoliths</h4>
+          <p>One of the most interesting aspects about agents is allowing them to communicate. Instead of having one single model do all the work, <strong>specialize a model for every single task</strong>. This is not new — in software engineering we've been doing this forever. Don't build a monolithic application; build one where every component is specialized for one task. <strong>Do one thing and do this thing well.</strong> Evaluate every contribution.</p>
+          <p>Example: imagine you need to build a set of agents simulating a <strong>trading environment</strong>. As humans, we organize in teams — everyone has a specific role. So in a trading environment: one person looks at <strong>fundamentals</strong>, another at <strong>fundamental markets</strong>, another at <strong>sentiment analysis</strong>, another at <strong>dynamics of a particular company</strong>. Putting all of this together with specialization improves the quality of the results.</p>
+
+          <h4>H2A — Agent-to-Agent Communication</h4>
+          <p>One way is the use of protocols Google developed and open-sourced — this is called <strong>H2A, Agent-to-Agent communication</strong>. The key aspect: dynamically each agent can <strong>discover other agents</strong>. The way this happens: if I am an agent, I declare my capabilities through an <strong>Agent Card</strong>. For example, this particular agent does currency conversion. Other agents can query: "Is there a specific agent that can do currency conversion?" This is a very powerful mechanism.</p>
+          <p>What you can do is <strong>"hire" new agents</strong> for specific roles dynamically, without a predefined structure — they adapt to the particular needs at hand. Here's another example: three sequential agents — 1, 2, 3 — all running in parallel, then a sequential pipeline where the parallel agents are combined by a larger agent responsible for solving the task.</p>
+
+          <h4>Community Contributions</h4>
+          <p>This work would not have been possible without the contribution of the community. Someone is maintaining a collection of all these design patterns. The community is also suggesting other patterns I wasn't thinking of at the beginning, which is absolutely fine. I think Stefano Fonta will respond to the book with a <strong>second edition</strong>. There were significant production efforts in 2021 with more than 300 different projects — this was becoming immense.</p>
+
+          <h4>Personal Realization &amp; the Compiler Analogy</h4>
+          <p>OK, that was the initial part. Now I want to share some learnings. Please feel free to interrupt me with questions.</p>
+          <p>I had this moment of realization around <strong>July or August last year</strong>. I started writing code when I was around six or eight years old — my first code was Assembler, literally to call video games. I went through a journey of writing code in many languages: Pascal, Java, C, C++, Python, Rust, Scala. And for the first time, there was a moment of big surprise — I realized I could actually use AI to develop code on my behalf. There were tools producing code on my behalf. There was a moment where I was skeptical: <strong>"How can I control them?"</strong></p>
+          <p>Then I had a moment of realization. I had started writing code in Assembler, then in higher-level languages like C++. But C++ is compiled into Assembler — and <strong>I don't go and check the output of the compiler</strong>. So I asked myself: "Is there any way for us to get the same level of confidence with AI as we have with the compiler?" The compiler is nothing but a translator — code from one language, say Python, to assembly. So the question became: <strong>what's the best way to achieve this feeling?</strong></p>
+          <p>This was probably <strong>September last year</strong>, when the community started talking about a <strong>"backcoding" movement</strong>. For me, the question was: <strong>"How can I trust that the output is something valuable?"</strong> Writing code used to be measured in weeks of conversion cycles. The trade-off became: <strong>How can I maintain the speed but still maintain the level of quality and trust I am delivering?</strong></p>
+
+          <h4>Learning #1 — State-Driven Development (SDD)</h4>
+          <p>The first and most important learning is what Robin was saying: <strong>state-driven development, SDD</strong>. Again, this is not completely new. For years we've been writing specs. But specs written in any language — English, Chinese — had to be translated into code, and sometimes this translation was losing aspects.</p>
+          <p>There is a very interesting research from <strong>1994</strong>. A professor at MIT called <strong>Naomi Klein</strong> wrote a manifesto saying: "One day we will write software in human language." <strong>The book is dedicated to her.</strong> She came up with this vision many years ago but was probably too early. Now we are going to use the language we use as humans to communicate our particular code. <strong>The best way to talk quality is to start from the very beginning, with a well-defined and very clear spec definition.</strong> If you have a well-defined spec, the quality of the model output will improve.</p>
+          <p>And when you write those things, you should not write them entirely by yourself. Start writing them, then ask AI models to refine. Give a high-level definition of the roadmap and a high-level definition of the specs, then ask AI to refine.</p>
+
+          <h4>Learning #2 — A Serious Test Plan</h4>
+          <p>The other important aspect: <strong>a serious test plan</strong>. The spec is the beginning; the test plan is the only way to maintain awareness and control of the output. The fundamental shift is that an architect can now help write and implement that test plan — but it's <strong>way more important than before</strong>. You really need a high-quality test plan to make sure the output is verified. If I could call out one significant change, this is it. The only thing I would ask of my colleagues: <strong>make sure your test plan is robust, and your test plan is implemented by R&amp;D at the same time</strong> as the development.</p>
+          <p>As you can write specs and tests, writing documentation became super easy. <strong>I don't write documentation anymore.</strong> I basically tell the AI: "This is my spec, this is my roadmap, this is the test plan. Implement everything and write the documentation." The documentation is high quality, constantly reflecting the quality of the code.</p>
+
+          <h4>Agent Design Principles — The Maze Metaphor</h4>
+          <p>These days there's a lot of discussion about agents. There's a very nice definition from a professor who said: agents are like <strong>going in a maze and converging to a certain point — but it's up to you to define the walls of this maze</strong>. The agents can move, but you need to define the constraints. A lot of this can be done through three layers:</p>
+          <ol>
+            <li><strong>Provide context</strong> — any information.</li>
+            <li><strong>Sandboxed execution</strong> — you don't want agents to go rogue before you've actually tested them.</li>
+            <li><strong>Feedback</strong> — this is where I'm working right now. Agents must provide feedback on the environment so they adapt. <strong>It's a permanent cycle.</strong></li>
+          </ol>
+
+          <h4>Evolution of Focus</h4>
+          <p>Two years ago people were talking about <strong>prompt engineering</strong>. One year ago, <strong>context engineering</strong> — how we dynamically interact. Today, in the next six months to one year, a lot of people are talking about <strong>AI messaging</strong> — what are the constraints we put on agents, and how we make sure they are operating in a safe environment. There's a lot of thought about: what are the right tools? How can I have this agent running in a sandbox? How can I provide long-term reliability?</p>
+
+          <h4>The Second Book — Practical Agent Deployment</h4>
+          <p>Now I am writing a <strong>second book</strong>, the continuation of the first. It's essentially my experience on the job — how to make sure these agents are literally running in a proper environment. The first book put together these agents combining different contexts at a level. This one is practical experience, chapter by chapter — talking from the beginning about prompts, then tools. One extremely important new thing is <strong>the introduction of skills</strong>. Skills enable agents to <strong>dynamically learn what they need to do</strong>, including logging and learning from a corpus.</p>
+          <p>That's the end of my presentation. Thank you so much. If you want to contribute to the previous book, you can go online — there's a GitHub repository, or you can comment on the book.</p>
+
+          <h4>Q&amp;A</h4>
+          <p><strong>Q1 — Can AI handle verification?</strong></p>
+          <p>One of the reasons we have significant progress in coding agents is because <strong>you can verify the code</strong> — you can run it, execute it, and verify deterministically if there is something wrong. <strong>The combination of the non-deterministic generation and the deterministic verification is the power.</strong> The good news: verification can also be implemented automatically. <strong>It's up to you to define what you want to verify, but you can delegate the implementation of the verification to the AI.</strong></p>
+
+          <p><strong>Q2 — What testing-related knowledge can traditional testers learn from this?</strong></p>
+          <p>Many of the principles are still valid — in fact, they are <strong>even more valid</strong>. Three examples:</p>
+          <ol>
+            <li><strong>Specs were always supposed to come before writing code</strong>, but sometimes people went back into the code and forgot about them. This is no longer acceptable — even more important than before.</li>
+            <li>Testing — best practice was 60% coverage, with maybe 10% of that not being updated. <strong>You cannot afford a situation like this anymore.</strong></li>
+            <li>Even with parallelism — we can run five, six, seven processes in parallel — at the end of the day it's fundamental that <strong>you guarantee the order</strong>, even on machines with multiple processors.</li>
+          </ol>
+          <p>Summary: <strong>specs were important before, but even more important now; tests were important before, but even more important now</strong> — these are the three learnings.</p>
+
+          <p><strong>Q3 — Bridging the gap from agent demos to production</strong></p>
+          <p>Two data points. <strong>One year ago at Google I/O</strong>, Google shared that 20–25% of new code at Google was written with AI. Then it went up to <strong>50%</strong>. And this year at Google Next, a few weeks ago, Google announced we now write <strong>75% of new code with AI</strong>. There are a couple of things to consider:</p>
+          <ul>
+            <li><strong>Code review is fundamental</strong> — the number of code reviews we need is way higher than before. AI can help here too.</li>
+            <li>Every PR I write: <strong>specification is written together with AI, the test is written together with AI, the review is happening together with AI</strong>. These three fundamental steps — specification, test, review — are all augmented by AI.</li>
+          </ul>
+          <p>I don't believe genuinely new things are happening; we just have new tools we can leverage to support all the existing software-engineering best practices.</p>
+
+          <p><strong>Q4 — Agentic patterns vs traditional (GoF) design patterns?</strong></p>
+          <p><strong>The GoF book is one of the most important books ever written in software engineering.</strong> But that book is more descriptive of the deterministic side of software engineering. <strong>Agents and LLMs add a non-deterministic side</strong> — multiple probabilistic agents instead of one single deterministic component. The two are <strong>complementary</strong>. <strong>I would strongly recommend considering the GoF book every time you want to write high-quality code — and consider my book too.</strong> The combination of the two is the best use.</p>
+
+          <p><strong>Q5 — % of Google code written by AI; future of testing</strong></p>
+          <p>The first part is public information. At <strong>Google Cloud Next</strong> three or four weeks ago, Google declared that for any new software, <strong>75% of any new software is written with AI</strong>. Software engineers are defining the specs and the goals; implementation is no longer the bottleneck. When we talk about software engineering, <strong>implementation is becoming a smaller and smaller part of it</strong>.</p>
+          <p>There are four phases: <strong>specification, implementation, testing, deployment</strong>. Implementation and deployment are becoming easier — Kubernetes and other tools help. But <strong>spec and testing are where our contribution as humans is crucial</strong>. We are in the position to control the quality.</p>
+          <p>Future of testing? <strong>Testing is becoming the most important profession right now.</strong></p>
+        </blockquote>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== Speech 3 ===== -->
+  <div class="speech" id="speech-3">
+    <div class="speech-header" onclick="toggleSpeech('speech-3')">
+      <div class="speech-num">3</div>
+      <div class="speech-title-block">
+        <div class="speech-title">AI Coding 的产品演进和研发范式变革</div>
+        <div class="speech-meta">
+          <span>夏振华</span><span class="sep">·</span>
+          <span>阿里云 Qoder 高级技术专家</span><span class="sep">·</span>
+          <span>10:40–11:20</span>
+        </div>
+      </div>
+      <div class="toggle-icon">▼</div>
+    </div>
+    <div class="speech-body">
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab(this, 'tab-3-summary')">📝 整理纪要</button>
+        <button class="tab" onclick="switchTab(this, 'tab-3-raw')">🎙️ 录音转写</button>
+      </div>
+
+      <div class="tab-content active md" id="tab-3-summary">
+        <h2>概要</h2>
+        <p>本次演讲系统回顾了 AI 编码（AI Coding）在产业中的演进路径与范式迁移，展示阿里巴巴 Tobor 团队从"灵码"到"Code"平台的产品与技术演进，并聚焦于多智能体（Multi-Agent）架构、上下文与知识沉淀（Repo Wiki、长期记忆与技能库）、Stack 驱动工作流、安全沙箱与验证闭环等关键能力如何在真实软件工程中实现端到端交付与质量保障。演讲同时发布了产品新进展（如 Pass Mode 独立化、专家团协作、IDE 内置前端自验证、跨平台沙箱与智能拦截），并通过运维工单自修复、Sketch 驱动全栈交付、超大存量系统的跨库增量开发三大案例，展示 AI 重塑研发流程的实践与 ROI。</p>
+
+        <h3>主要主题</h3>
+        <ul>
+          <li><strong>行业演进与范式迁移</strong>：从提示词工程到"上下文为核心"的 Agent 模式，进入可委派、异步执行的任务流阶段</li>
+          <li><strong>工程感知与知识沉淀</strong>：向量检索、代码知识图谱、历史 commit 融合、Repo Wiki、企业级长期记忆与技能沉淀</li>
+          <li><strong>Stack 驱动开发与端到端交付</strong>：从 Prompt 到 Stack 的转变，高质量 Stack 的五大标准与 Code Agent SDK</li>
+          <li><strong>多智能体架构与编排</strong>：Leader Agent 协调、专家团分工并行、Auto Scheduler 智能模型调度</li>
+          <li><strong>质量与安全基线</strong>：IDE 内置验证、Browser/Computer Use、跨平台轻量沙箱与智能拦截、评审加厚与"Ultra Review"</li>
+          <li><strong>企业落地与治理</strong>：效果偏差、可维护性风险、上下文资产化、合规与成本 ROI</li>
+          <li><strong>三个工程化案例</strong>：智能工单自修复、Sketch 主导的全栈交付、超大存量系统的低增量快交付</li>
+        </ul>
+
+        <h2>一、行业演进与范式迁移</h2>
+        <h3>阶段演进</h3>
+        <ul>
+          <li><strong>2023–2024</strong>：编辑区自动补全（行内 / 跨文件预测），AI 辅助加速编码。</li>
+          <li><strong>2024 年底–2025 年初</strong>：多文件自动化编辑兴起，<strong>交互重心转向 Chat 区域</strong>。</li>
+          <li><strong>2025 年底–至今</strong>：任务委派与异步执行，人类专注任务起始与验证，<strong>AI 主导中间编码</strong>；关注任务流、结构化产出与验证。</li>
+          <li><strong>2025 年底–2026 年初预判</strong>：以 <strong>RAS（更强约束 / 保障机制）</strong> 为核心，强化多 Agent、验证与评审，降低破坏性风险。</li>
+        </ul>
+        <blockquote>
+          <p>"人的主视区逐步从编辑区迁移到与 AI 交流的 Chat 区域。"</p>
+          <p>"我们已经可以把很多任务几乎委派、异步让 AI 去执行；人主要参与最开始和后面的阶段。"</p>
+          <p>"进入以上下文为核心的阶段，Agent 需要结合工具，自主发现与任务相关的仓库状态。"</p>
+          <p>"在 Analysis 阶段（RAS），更重要的是让 AI 在真实环境中有约束、有保障地完整运行。"</p>
+        </blockquote>
+
+        <h2>二、Code 平台定位与架构</h2>
+        <ul>
+          <li>面向<strong>真实软件与开发者</strong>的 Agentic 编程平台（<strong>非 Live Coding</strong>），端到端任务交付。</li>
+          <li><strong>双版本并行</strong>：
+            <ul>
+              <li><strong>全球版</strong>：效果优先，接入海外 SOTA。</li>
+              <li><strong>国内版</strong>：安全可信，接入百炼与国内友商。</li>
+            </ul>
+          </li>
+          <li><strong>统一底座</strong>：多 Agent 框架、增强的上下文机制与策略、工具与环境管理。</li>
+          <li><strong>Auto Scheduler</strong>：按任务与仓库复杂度智能选模，平衡效果与成本，降低选择负担。</li>
+        </ul>
+        <blockquote><p>"Auto Scheduler 会根据任务与仓库复杂度，动态选择最适合的模型，实现更好的性价比。"</p></blockquote>
+
+        <h2>三、工程感知与知识沉淀体系</h2>
+        <ul>
+          <li><strong>向量检索</strong>：统一召回与需求相关的代码片段。</li>
+          <li><strong>代码知识图谱</strong>：模块 / 实体关联与影响范围洞察。</li>
+          <li><strong>历史 Commit 融合</strong>：以高质量提交为锚，精准定位变更点。</li>
+          <li><strong>Repo Wiki</strong>：自动生成 / 更新架构、数据流、关系，对人和 Agent 双重友好。</li>
+          <li><strong>记忆系统升级（2026-05）</strong>：支持企业内跨成员知识共享；长期记忆与技能沉淀。</li>
+          <li><strong>Semantic Search</strong>：区别于传统 RAG，结合动态搜索补全上下文，减少无差别 grep 与上下文冗余，<strong>降低调用与成本</strong>。</li>
+        </ul>
+        <blockquote>
+          <p>"他需要在这个过程建立起他的长期的记忆。"</p>
+          <p>"我们通过这样的一套机制，能够更快定位相关代码，从而降低模型的调用次数、上下文累积的长度以及最终的成本。"</p>
+          <p>"我们的企业客户可以在企业内的不同开发成员之间进行知识的共享。"</p>
+          <p>"Repo Wiki 不只是给人看，它也可以给 AI 看、给 Agent 看。"</p>
+        </blockquote>
+
+        <h2>四、Stack 驱动开发与产品能力</h2>
+        <h3>Prompt vs. Stack</h3>
+        <p>以<strong>工程化 Stack</strong> 为中心的稳定交付，而非单纯依赖 Prompt。</p>
+        <h3>高质量 Stack 五大特征</h3>
+        <ol>
+          <li><strong>机器可读</strong></li>
+          <li><strong>无歧义</strong></li>
+          <li><strong>可追溯</strong></li>
+          <li><strong>可验证</strong></li>
+          <li><strong>可演进</strong></li>
+        </ol>
+        <h3>工作流四步</h3>
+        <ol>
+          <li>理解需求</li>
+          <li>关联现有代码</li>
+          <li>外部知识检索（新 SDK / API）</li>
+          <li>生成完整 Stack</li>
+        </ol>
+        <h3>产品能力</h3>
+        <ul>
+          <li><strong>Code Agent SDK</strong>：支撑基于 Stack 的端到端交付。</li>
+          <li><strong>Pass Mode</strong>（原 test mode）在 <strong>2026-05-15</strong> 独立化：偏异步、长时、稳态任务专用视窗。</li>
+          <li><strong>规范与知识沉淀</strong>：Community 长期记忆、知识卡片、question mode 强化需求澄清。</li>
+        </ul>
+        <blockquote><p>"我们在 5 月 15 号也是做了一个大的版本的发布，就是我们把 pass mode 这样一个模式完全拎出来，它作为一个独立的视窗。"</p></blockquote>
+
+        <h2>五、多智能体（Multi-Agent）协作与编排</h2>
+        <ul>
+          <li><strong>2026 年 4–5 月行业共识</strong>：多 Agent 是复杂端到端任务的必要架构。</li>
+          <li><strong>专家团（2026-03 发布）</strong>：Leader Agent 串联编程、测试、Code Review、Browser + CodeReview 验证等专家。</li>
+          <li><strong>Leader Agent 职责</strong>：
+            <ul>
+              <li>任务澄清、实现计划、端到端拆解；</li>
+              <li>无依赖模块<strong>并行</strong>；</li>
+              <li><strong>"收件箱"通信</strong>与依赖协调；</li>
+              <li>全局视角控进度。</li>
+            </ul>
+          </li>
+          <li><strong>专家自定义</strong>：开放新增领域专家 / 融合行业技能与 NCP / know-how，适配嵌入式等不同规范。</li>
+          <li><strong>端到端交付升级</strong>：从"只生成代码"到"含 Code Review 与验证"，完成后进行知识与技能沉淀（<strong>越用越强</strong>）。</li>
+        </ul>
+        <blockquote>
+          <p>"到 26 年的 4~5 月份，几乎成为行业的共识——一定需要多 Agent 架构去完成端到端任务。"</p>
+          <p>"我们的 Leader Agent 是可以做相关的协调，去比较好地完成一个任务。"</p>
+        </blockquote>
+
+        <h2>六、质量验证与安全沙箱</h2>
+        <h3>IDE 内置前端自验证</h3>
+        <ul>
+          <li>浏览器代理内工具链、主子 Agent 与模型路由；</li>
+          <li>显著降低 token 与成本，接近 IDE 终端验证体验。</li>
+        </ul>
+        <h3>Browser Use</h3>
+        <p>Web 交互式验证（登录、输入、错误校验）。</p>
+        <h3>Computer Use（现为 Mac 可用）</h3>
+        <p>扩展至桌面 App（如钉钉）测试与操作指导，<strong>探索 Linux / Windows</strong>。</p>
+        <h3>跨平台沙箱与智能拦截</h3>
+        <ul>
+          <li><strong>多层命令解析</strong>识别嵌套 / 管道风险，模型判别 + 黑名单（含用户自定义）。</li>
+          <li><strong>macOS</strong>：基于 SecCloud / CPL 的目录权限沙箱，工程目录内读写，越界拦截。</li>
+          <li><strong>Linux</strong>：bubblewrap + namespace 隔离。</li>
+          <li><strong>Windows</strong>：受信令牌 / ACL 拦截。</li>
+          <li>在安全与体验间取<strong>"轻量本地 + 限定目录权限"</strong>，优于完全隔离 Docker 或简单别名替换。</li>
+        </ul>
+        <blockquote>
+          <p>"我们把整个前端验证能力完全内置到了 Code 的 IDE 里……在 token 消耗以及任务成本上面有比较大的优势。"</p>
+          <p>"我们今天做的是一个轻量级的本地化的……在限定的目录下去限定 bash 执行的权限。"</p>
+        </blockquote>
+
+        <h2>七、企业落地挑战与治理</h2>
+        <ul>
+          <li><strong>效果不达预期</strong>：复杂工程与业务理解不足。</li>
+          <li><strong>代码质量隐患</strong>：可维护性与正确性。</li>
+          <li><strong>企业级复杂工程偏差</strong>：缺乏知识管理与上下文资产化。</li>
+          <li><strong>重估研发时间结构</strong>：编码 &lt; 一半；需求对齐、方案、评审、测试与发布占比高，AI 应覆盖端到端链路。</li>
+          <li>用户关注<strong>从"看补全"转向"看任务流与结果"</strong>，界面围绕进度、结构化产出与验证重构。</li>
+          <li><strong>安全与约束优先</strong>：高自治阶段需前置护栏、验证与评审加厚。</li>
+        </ul>
+
+        <h2>八、三个工程化案例与结果</h2>
+
+        <h3>案例一：智能工单系统端到端自修复</h3>
+        <p><strong>流程</strong>：</p>
+        <ol>
+          <li>智能分类</li>
+          <li>语义聚类预警（30 / 60 分钟爆发监测）</li>
+          <li>原生根因分析（描述 / 截图 / 日志 / 本地代码）</li>
+          <li>触发链路：IE 版本识别 → 切分支 → 修复 → 回归 → 录屏验证 → PR / 反馈</li>
+        </ol>
+        <p><strong>效果</strong>：</p>
+        <ul>
+          <li><strong>&gt; 10 倍效率</strong></li>
+          <li><strong>40% 需求</strong>全自动端到端修复</li>
+          <li><strong>7 × 24 全球持续监控与处理</strong></li>
+        </ul>
+        <blockquote>
+          <p>"整个的效率提升我们认为是超过 10 倍的。"</p>
+          <p>"我们有 40% 的需求是可以完成全自动端到端的修复的。"</p>
+          <p>"我们这套系统也是在 7×24 小时不停在背后去做运转。"</p>
+        </blockquote>
+
+        <h3>案例二："Code Work"与 Sketch 主导全栈交付</h3>
+        <ul>
+          <li><strong>目标</strong>：快速交付生产级 React Native App，"几乎全用 Code 开发"。</li>
+          <li><strong>角色重构</strong>：
+            <ul>
+              <li>前端工程师聚焦架构与选型；</li>
+              <li>前端业务代码由后端产出；</li>
+              <li>设计师参与 UI 代码生成。</li>
+            </ul>
+          </li>
+          <li><strong>协作循环</strong>：以 Sketch 为中心，<strong>夜间自动跑、次日验证</strong>，打破角色边界、加速迭代。</li>
+        </ul>
+        <blockquote><p>"基本上就是完全用 Sketch 驱动……打破不同角色的边界，快速交互验证。"</p></blockquote>
+
+        <h3>案例三：超大存量系统跨库增量开发（QuickSilver）</h3>
+        <ul>
+          <li><strong>背景</strong>：VSCode 开源底座（TS）+ 自研 Agent 后端（Golang），多仓库、跨前后端，<strong>约 400 万行</strong>。</li>
+          <li><strong>方法</strong>：
+            <ul>
+              <li>知识检索与微粒化 / 图谱化；</li>
+              <li>历史 spec 落库；</li>
+              <li><strong>AutoStep 与专家并行合并 "Ultra Spec"</strong>；</li>
+              <li>AI 执行与验证并行；</li>
+              <li>护栏与 <strong>"Ultra Review"</strong> 对每 PR 异步并行多视角审查（安全、架构、扩展性、代码质量、注释）。</li>
+            </ul>
+          </li>
+          <li><strong>结果</strong>：
+            <ul>
+              <li>约 <strong>3 周完成功能</strong>；</li>
+              <li>在 400 万行存量中<strong>仅新增 ~50 行代码</strong>（探索与验证中生成远多于最终增量）；</li>
+              <li>高效、低增量、高质量交付。</li>
+            </ul>
+          </li>
+        </ul>
+        <blockquote>
+          <p>"让 AI 怎么样去看懂这 400 万行的存量代码……把代码微细化，让 AI 能够快速做理解。"</p>
+          <p>"我们叫 Ultra Spec……交付出来的 spec 更加具体、考虑全面、质量更高。"</p>
+          <p>"对每个 PR，我们通过异步并行方式去做技术 Review……安全、架构、扩展性、代码质量、注释等多视角。"</p>
+        </blockquote>
+
+        <h2>九、新瓶颈与治理挑战</h2>
+        <ul>
+          <li><strong>编码效率显著提升后</strong>，瓶颈转移至：
+            <ul>
+              <li><strong>Review</strong></li>
+              <li><strong>架构腐化风险</strong></li>
+              <li><strong>Agent 局部优化导致系统设计缺失</strong></li>
+              <li><strong>责任链断裂</strong></li>
+            </ul>
+          </li>
+          <li>需以<strong>流程规范、审查护栏、知识沉淀与并行协同</strong>重塑工程治理。</li>
+        </ul>
+        <blockquote><p>"纯 Coding 的效率已经被提升得非常高了……瓶颈在 Review、架构腐化与责任链缺失。"</p></blockquote>
+
+        <h2>十、行动要点（面向与会者）</h2>
+        <h3>建设上下文资产与知识沉淀</h3>
+        <ul>
+          <li>建立代码库语义索引、代码知识图谱与历史 commit 联合索引；将历史 spec、设计与决策系统化落库。</li>
+          <li>引入并运用 Repo Wiki，保证随代码演进的自动更新；将结构化 Wiki 纳入 Agent 检索与决策上下文。</li>
+          <li>部署长期记忆 / 技能库，支持跨团队知识共享与访问控制。</li>
+        </ul>
+        <h3>采用 Stack 驱动与多 Agent 架构</h3>
+        <ul>
+          <li>落地四步工作流（需求理解 → 代码关联 → 外部检索 → 生成 Stack），用"五特征"评审 Stack 质量。</li>
+          <li>使用 Code Agent SDK 实现端到端交付；以 Leader Agent 进行任务澄清、计划与并行拆解。</li>
+          <li>开放专家自定义，将行业 know-how / NCP 融入多 Agent 专家团，适配不同领域规范（如嵌入式）。</li>
+        </ul>
+        <h3>强化验证闭环与安全基线</h3>
+        <ul>
+          <li>在 IDE 内集成前端自验证与 Browser / Computer Use，减少环境切换与 token 成本。</li>
+          <li>启用跨平台轻量沙箱与多层命令解析 + 黑名单；按平台选择目录权限 / namespace / ACL 等隔离手段。</li>
+          <li>把"安全护栏、验证强化、评审加厚"前置为系统能力，避免后置补救。</li>
+        </ul>
+        <h3>智能模型调度与成本优化</h3>
+        <p>采用 Auto Scheduler 按任务 / 仓库复杂度选模；以调用次数、上下文长度与成本建立度量闭环。</p>
+        <h3>并行协作与审查护栏</h3>
+        <ul>
+          <li>推行 AutoStep 与专家团并行；上线"Ultra Review"对每个 PR 开展安全 / 架构 / 扩展性 / 代码质量 / 注释等异步多视角审查。</li>
+          <li>为每项自动化变更要求对应 spec、审查记录与回滚策略，指定责任域，<strong>防止责任链断裂与架构腐化</strong>。</li>
+        </ul>
+        <h3>工单与运维闭环自动化</h3>
+        <ul>
+          <li>建立智能分类、语义聚类预警、原生根因分析；配置标准化日志 / 截图 / 描述采集。</li>
+          <li>设计自动修复链路（版本识别 → 分支 → 修复 → 回归 → 录屏验证 → PR → 通知），构建 7×24 Agent 运行与告警体系。</li>
+        </ul>
+        <h3>度量与迭代节奏</h3>
+        <ul>
+          <li>设立效率与质量指标（任务完成率、交互轮次、token 消耗、PR 审查延迟、缺陷率、闭环时间）；</li>
+          <li>在 2026-05-22 起两至三周内分阶段评估，持续优化 Agent 策略与上下文管理。</li>
+        </ul>
+      </div>
+
+      <div class="tab-content md" id="tab-3-raw">
+        <blockquote>
+          <p>阿里巴巴 Tobor 团队目前主要负责 Cloud IDE 的 Agent 相关工作。今天很开心来深圳分享，我们看一看阿里巴巴 Tobor 怎么样看 AI Coding 行业这两三年的发展，以及我们 Tobor、包括之前在做的灵码这两三年里产品上的演进、策略、思路和技术上的思考。后面我也会简单介绍 Code 团队在 AI 时代怎么样结合 AI、结合 Agent 去改造工作流程，提升研发效率。</p>
+          <p>今天我主要分三个章节：行业的变化、Code 在产品技术上的演进思路、Code 的最佳实践。</p>
+
+          <h4>AI Coding 产品演进的趋势</h4>
+          <p>随着 AI 能力不断提升，从大约 23 年我们灵码开始做补全。当时主要在编辑区做同行后续位置代码的预测、接续行的代码补全，或者跨文件的 Next Action Prediction。后面随着模型能力升级（特别是 Sonnet 3.5 这样的模型），我们发现结合 AI 可以做<strong>多文件自动化编辑</strong>，能够大幅度提效。</p>
+          <p>再往后，更高级的模型解锁后，我们发现给 Coder 或灵码一个比较复杂的任务，用纯自然语言描述，它也能够自己理解用户想做什么，然后结合代码库里的存量代码去检索、发现，去完成一个比较复杂的任务。</p>
+          <p>从纯 Coding Work 来看，我们的程序员朋友每天的工作时间分布——真正写代码的环节其实并不多，可能很多朋友的真正编程时间少于 50%。我们有很多时间花在跟产品经理对焦需求、设计技术方案上。<strong>Coding 这个环节目前已经被大幅度提效了。</strong> 但 Coding 完了之后还有很长的后续链路：深度 Review、修复、验证、测试、CI/CD、部署和发布。</p>
+          <p>我们也发现：<strong>结合 AI、结合 Agent，已经不只是完成一个任务、一个需求，而是完成一个端到端的解决方案的交付。</strong> 使用 Cling Agent 完成任务的用户规模在快速扩大，每个任务的复杂度、执行时长、模型交互轮次也在快速提升，token 呈现指数型爆炸式增长。</p>
+
+          <h4>AI 平台三阶段演进</h4>
+          <p><strong>第一阶段（23–24 年）</strong>：股权阶段。当时我们 Code 团队和灵码团队同步投入到 AI Coding 行业，国内灵码会做得早一点。AI 更多是纯辅助角色，<strong>人的视线还停留在 IDE 编辑区</strong>，自己在主导。</p>
+          <p><strong>第二阶段（24 年底–25 年初）</strong>：随着模型能力升级，Cursor、灵码这种<strong>多文件编辑</strong>能力出现——@ 几个文件，AI 就能结合任务描述完成编辑。这个阶段效率提升非常大，而且<strong>人的关注焦点开始迁移</strong>——从盯着编辑区，逐步往与 AI 对话的 Chat 区域迁移。</p>
+          <p><strong>第三阶段（25 年底至今）</strong>：我们已经可以把<strong>很多任务委派、异步地让 AI 执行</strong>。人在过程中的主要环节是最开始和后面，中间的 Coding 阶段焦点已经挪出去了。相应的产品变化：用户关注的中间区域已经不是代码编辑区，变成了对话流或任务执行过程；用户关心的是结构化的产出、任务执行进度、验证结果。前两天发布的 Net Graph 直接把 IDE 市值干掉了。</p>
+
+          <h4>从 Prompt 到 Context 再到 RAS</h4>
+          <p>最开始的股权或 AI Chat 时代，更多是程序员怎么样描述好需求、设计精巧完美的 Prompt——Prompt 的质量对结果输出质量有非常大的影响。</p>
+          <p>再往后逐步进入<strong>以 Context 为核心</strong>的阶段。AI Agent 需要结合 Coding 工具，动态自主地发现仓库里跟用户任务描述相关的状态。<strong>这个阶段上下文是非常核心的。</strong> 另外，Agent 是长周期的多轮迭代，不是简单的一问一答——怎么做好长周期多轮迭代带来的上下文累积，以及超出 Context Window 后的上下文管理，在这个阶段非常重要。</p>
+          <p>到 25 年底 26 年初，国外提出 <strong>RAS</strong> 的概念非常火。在以 RAS 为核心的阶段，重要的不再只是写好需求或做好上下文文档管理，<strong>更多是让 AI 在我们的代码库或环境里更有约束、更有保障地完整运行起来</strong>。这里涉及多 Agent 架构、专业化垂直场景优化、约束系统设置——保障智能体不会因为犯错或边界 case 损坏电脑、删除命令。另外通过把验证和评审做重做厚，让任务完成的难度和周期更长。</p>
+
+          <h4>Code 平台与定位</h4>
+          <p>Code 的前身是灵码团队。我们去年八月份在全球发布了 Code。<strong>它定位为一款面向真实软件、面向真实程序员的产品——不是 Live Coding，而是 Agentic 编程平台</strong>，解决程序员真实研发需求。</p>
+          <p>平台分为<strong>全球版</strong>（效果优先，对接海外 SOTA 模型）和<strong>国内版</strong>（安全可信，对接国内最好的模型）。底层是统一的 Agentic Coding Platform，包含多 Agent 框架、增强的上下文机制、Tools 设计、环境管理。再往下是 <strong>Auto Scheduling</strong>——结合用户任务复杂度和仓库复杂度，动态智能选择最适合的模型。<strong>Auto Scheduler 让用户不用花大量时间研究 GPT 5.5、OPT 4.7、4.6 各自适合什么场景，自动达到比较好的性价比。</strong></p>
+
+          <h4>企业落地挑战</h4>
+          <p>从 25 年开始，企业客户大范围落地 AI Coding 产品。挑战主要有：</p>
+          <ul>
+            <li>效果不达用户预期（复杂工程下尤为明显）；</li>
+            <li>代码坏味比较严重；</li>
+            <li>企业复杂工程效果有偏差——核心是<strong>知识管理的缺失</strong>。</li>
+          </ul>
+          <p>知识管理也是 Code 在发布时就重点投入的领域。海外的<strong>卡帕西</strong>讲怎么样建立 Weakness。我们 Code 在 25 年 8 月份也已经做了相关投入，做了一个产品能力管理仓库知识。知识包含很多方面：代码反推出的架构知识、程序员日常对话中的知识——程序员经常纠正 AI、约束 AI，<strong>这个过程中 AI 也应该学习到知识，建立长期记忆</strong>。或者一些 Skills 还需要沉淀（当时还没有 Skills 这个概念）。</p>
+          <p>底层有四个基础保障——首先是<strong>安全与合规</strong>：不只是传输过程的安全，也包含本地代码、文件、数据的安全性。这方面我们有非常扎实的投入。</p>
+
+          <h4>工程感知与知识沉淀</h4>
+          <p>从工程感知角度看仓库的理解和知识沉淀。上层是感知层，做了几套底层能力支持 Agent 更好地理解仓库：</p>
+          <ul>
+            <li><strong>向量检索</strong></li>
+            <li><strong>代码知识图谱</strong></li>
+            <li><strong>历史 BigCommit 信息融合</strong>——AI 时代代码产出非常多，但真实 commit 到仓库的代码质量较高、经过人工确认。</li>
+          </ul>
+          <p>有些产品会广泛 grep，找出一大堆相关内容再疯狂 read，再拼接出认为相关的上下文——<strong>真正开始任务前，上下文已经累积得非常长。</strong> 在我们的场景下：你这个需求，我发现之前一些 commit 跟它有关系，那么当时 commit 改了什么代码，可以快速定位。代码知识图谱也能找到关联实体——比如要改订单某个能力，我能发现它会影响周边的用户、其他服务。<strong>通过这套机制，能更快定位代码，降低模型调用次数、上下文累积长度和最终成本。</strong></p>
+          <p>底层沉淀几套组件：<strong>Retrieval 能力</strong>、<strong>记忆系统</strong>（5 月份发布升级，<strong>企业客户可以在企业内的不同开发成员之间做知识共享</strong>）、<strong>Semantic Search</strong>（区别于传统 RAG，结合动态搜索能力补充上下文）。</p>
+
+          <h4>Repo Wiki</h4>
+          <p>这个功能上线之初就有用户体感很好。传统上程序员被迫维护很多文档：新人进来想了解仓库会比较困难，前辈的介绍文档现写很累；代码演进快，维护文档成本很高。</p>
+          <p>我们的 Wiki 根据代码动态实时编写——把仓库架构、数据流、实体关系全部处理出来，帮助你快速理解仓库；代码修改时也会自动变更。<strong>它当时设计是给人看，但我们发现梳理出的知识在 Agent 干活时也可以使用——不只是给人看，也可以给 AI、给 Agent 看</strong>，能够有效提高 Agent 的检索效率。</p>
+
+          <h4>Stack 驱动开发</h4>
+          <p>这在去年到今年是个比较火的趋势，已经有大量程序员基于这套工作流完成复杂需求的端到端交付。</p>
+          <p>Stack 写出来的流程：理解用户需求 → 看与代码库已有代码的关系（完全新增？已有模块改进？多模块关联修改？）→ 比较新的知识结合外部互联网 retrieval（比如说我刚发布了 Code Agent SDK，要基于它开发功能，但这种新知识在模型里还没有）→ 写出完善 Stack。</p>
+          <p><strong>比较好的 Stack 五大特征：</strong></p>
+          <ol>
+            <li>机器可读、易读（Markdown 比较好，最近也有讨论说 HTML 现在的模型也能比较好理解，只是会多消耗 token）；</li>
+            <li>没有歧义；</li>
+            <li>可追溯；</li>
+            <li>可验证；</li>
+            <li>未来可演进。</li>
+          </ol>
+          <p>Code 发布第一天就内置了 Stack 能力，当时叫 <strong>Test Mode</strong>——Pass 的意思是完成任务。<strong>5 月 15 号大版本发布，把 Pass Mode 完全独立化为单独的视窗</strong>，可以在里面完成偏异步、偏稳态的长时端到端任务交付。</p>
+
+          <h4>Multi-Agent 思考</h4>
+          <p>对知识的思考沉淀出 Community 长期记忆、知识沉淀、知识卡片；对 Spec 的思考沉淀出 Question Mode；这条 GT 是我们对 Multi-Agent 的思考。</p>
+          <p>Multi-Agent 到底要不要？还是单 Agent 就能完成端到端任务？这在行业里、包括 top 公司都有非常多讨论。<strong>到 26 年 4–5 月份，几乎成为行业共识——一定需要多 Agent 架构去完成端到端任务。</strong></p>
+          <p>今年三月份发布<strong>专家团</strong>模式：基于对软件工程的理解，内部定义了行业专家——编程专家、测试专家、Code Review 专家、Browser + Code Reviews 端到端验证专家。通过 <strong>Leader Agent</strong> 把专家串起来——用户给任务，Leader 思考要先搞清楚任务、列出实现计划、做端到端拆解：先 research、对仓库做了解，再编程；编程分前后端、分模块；模块间有依赖也可能没有依赖。<strong>没有依赖的模块完全可以并行——这在单 Agent 时期难以达成，多 Agent 时期可以做到并行化。</strong></p>
+          <p>Agent 完成后比如后端做完发现某个模块不对——我们设计了一套<strong>收件箱</strong>机制让主子 Agent 通信。子发现问题反馈给主，由主找程序员澄清；主因为有相对全局视角，能看到前端有些东西已做完、不 block。<strong>Leader Agent 能做协调，比较好地完成任务。</strong></p>
+          <p>另外做了端到端任务完成后的知识沉淀、Skill 沉淀，<strong>希望能做到越用越强</strong>。从原来只生成代码，到今天加入 Code Review 验证环节后，<strong>端到端交付一个结果</strong>。</p>
+          <p>5 月 15 号发布也是因为很多客户有需求——他们觉得有自己行业的专家，比如怎么定义后端代码、前端代码的写法、嵌入式领域的测试与我们定义的不一样。我们开放了<strong>专家自定义能力</strong>——完全新增领域专家，或在现有专家中融合行业 Skills、NCP，把行业 Know-how 融合到专家团里。</p>
+
+          <h4>AI 驱动的前端自验证</h4>
+          <p>世界上有 AI 软件能做相关事情，我们做了比较深入的投入——<strong>把前端验证能力完全内置到 Code 的 IDE 里</strong>。整个浏览器交互工具体系（包括主子 Agent 架构、智能模型路由）在浏览器 Agent 里完全实现。对比开源/社区方案，<strong>在 token 消耗和任务成本上有比较大优势</strong>。最后用户使用 Code 结合 Browser 验证，体验跟在 IDE 里使用终端验证差不多，不需要跳出 IDE。</p>
+          <p>前面发布已经上线云端 Use 功能。Browser Use 更多是 Web 开发——浏览器打开网页点点点、输入验证、登录报错。<strong>Computer Use</strong> 在浏览器之外拓展了验证能力——比如做 App 开发，今天要打开钉钉测试某功能正不正常，可以让 Computer Use 拉起钉钉点东西。也可以让它帮你配置不会用的软件——通过视觉能力看当前是什么样、应该点哪里。<strong>目前 Mac 下可用，我们也在探索 Linux 和 Windows。</strong></p>
+
+          <h4>多平台沙箱与 AI 驱动的智能拦截</h4>
+          <p>最近半年 AI 在安全领域投入越来越大。模型输出导致的删盘、删数据 case 在收敛，但风险仍存在，一旦发生危害严重。</p>
+          <p>比如这里一个 case，他套了一个危险命令在嵌套命令里。传统 Coding Agent 可能认为执行的是 <code>who am i</code> 没问题，但没做多层命令解析就不知道里面套了非常危险的命令。所以<strong>第一层防护</strong>是我们做了一套完善的命令解析，适配 Windows、Linux、Mac 各种终端，提取出真实要执行的命令——嵌套或管道想绕都能精确提取。</p>
+          <p>提取后经过<strong>三层防护</strong>：通过模型判断命令有没有风险——这个例子里模型一般能识别出套了 <code>rm</code> 是非常危险的，会要求提权、使用沙箱执行；另外有黑名单和用户自定义黑名单——比如 <code>rm</code> 类命令，用户可能直接加入黑名单，默认走沙箱。</p>
+          <p>沙箱实现方式：给开发者完全隔离的本地 Docker 当然能解决文件安全问题，<strong>但完全隔离 Docker 在本地拉新的起来后，很多代码依赖、配置无法把本地工程很好地运行起来。所以我们没采取这种方案。</strong> 还有方案是别名替换——预定义几个危险命令（如 <code>rm</code>），发现包含 <code>rm</code> 就替换为放垃圾桶。但<strong>防护能力有限，只能防特定命令</strong>，比如通过 shell 脚本最后执行的是 shell 而不是 <code>rm</code>，就识别不出来了。</p>
+          <p><strong>我们今天做的是轻量级本地化的、不是完全隔离的——只是在限定目录下限定 bash 执行权限。</strong> macOS 下通过 CPL 实现：不完全约束权限，把当前用户打开的代码工程的读写权限完全开放给 shell——在工程范围内可以读写、删东西；但跳出当前工程（删其他目录、其他盘、整盘）的命令会被完全拦掉。macOS 下通过 SecCloud 实现；Linux 下用 Bubblewrap 做 Linux Namespace 级隔离；Windows 下用受信令牌的方式，通过 ACL 机制拦截命令权限。</p>
+
+          <h4>内部实践案例一：用户工单全自动处理</h4>
+          <p>第一个是用户反馈上报问题的全链路全自动处理。去年八月份上线之初就有一键上报按钮，把当前 IE 日志、截图传给我们告诉遇到了什么问题。从上线到现在，团队规模没扩大多少，但工单数量扩大了几十倍——处理这么多爆炸式工单非常人力不足。</p>
+          <p>传统模式：开发看工单 → 不同团队的人都要看 → 看跟我相关的 → 大概定位 → 复杂的下载日志逐行分析 → 不熟悉别人代码还要结合代码看 → 发现是系统问题就修复——这个流程非常长。</p>
+          <p>有了自动处理系统，底层基于 Code CUI 能力。上层收到反馈做<strong>智能分类</strong>——网络类、模型效果、Agent Loop 设计、稳定性、本地网络/代码问题。然后<strong>智能语义聚类</strong>——某类问题在半小时一小时内快速爆发会聚类预警，让研发快速接入。然后<strong>原生根因分析</strong>——结合用户问题描述、截图、日志，再把本地 Code 代码给到 CUI 分析。如果是明确的问题（error 或 exception），触发自动修复流程：自动识别用户的 IE 版本 → 切代码和分支 → 修复。如果是 UI 相关，结合 Use 用例去点点看；<strong>整个过程会做录屏，AI 完全自己做</strong>。最后修复完成在内部处理流程里完整可见——他在分析、改代码、录屏、验证。今天钉钉里时不时收到 PR——他说我发现用户感知问题，已完成修复，验证过程怎么样，给端到端的反馈。</p>
+          <p>效果：原先看一个工单要 30 分钟，现在一眼看大概知道是用户的问题、代码问题、底层 Infra 问题还是模型效果问题。<strong>整体效率提升超过 10 倍。40% 需求可以完成全自动端到端修复。</strong> 因为有海外用户 7×24 不停反馈，<strong>这套系统也是 7×24 不停在背后运转、分析、修复、提交。</strong></p>
+
+          <h4>内部实践案例二：Code Work</h4>
+          <p>第二个是今年初发布的 <strong>Code Work</strong>。投入开发时收到一个挑战性目标——快速颠覆传统研发流程，交付一个完整的生产级 App。整个过程基本完全用 Code 开发，人几乎不真实触碰代码。</p>
+          <p>Code Work 是 React Native App，里面有大量前端代码。但开发过程中<strong>真实的前端工程师就一个左右</strong>，而且不是真实开发业务前端代码——他更多设计前端架构、整体组件交互、底层组件选型。<strong>业务层代码由好几个后端同学完成开发；前端 UI 部分很多由设计师同学完成开发</strong>——功能融合非常彻底。</p>
+          <p>整个过程<strong>完全用 Sketch 驱动</strong>：产品经理、程序员、设计师一起完善 Sketch；写好后白天写、晚上跑、第二天我来看。<strong>打破不同角色边界，快速交互验证</strong>——做内部交付领航、问题处理、最终上线。</p>
+
+          <h4>内部实践案例三：QuickSilver</h4>
+          <p>第三个是最近刚发布的 <strong>QuickSilver</strong>。但跟前面有个大区别——<strong>我们是在一个存量系统里面</strong>。今天大多数真实软件都在存量功能里，可能涉及跨库——前端一个库、后端一个或多个库。</p>
+          <p>我们的 case：Code IDE 基于 VSCode 开源版本做上层 Agent 能力。底层是非常大的 VSCode 开源代码 + Agent 相关代码；上层 IDE 几乎是 VSCode 开源加我们自己做的一套，主要 TS 写。底层 Agent（Agent Group、知识引擎、跟后端 Infra 通信）通过 Golang 实现。<strong>整个仓库已存在好多年——最初服务于灵码、再之前服务于阿里巴巴内部研发提效插件——生命周期非常长，有很多历史难以理解的代码。</strong></p>
+          <p><strong>第一层是地基层</strong>——让 AI 看懂这 400 万行存量代码。结合 Retrieval 能力把代码<strong>微细化</strong>，让 AI 快速理解，而不是在 400 万行里疯狂 grep（效率非常低）。然后是代码知识图谱。<strong>第三个是内部研发流程规范——把历史 Spec 文档落库</strong>——落库后 AI 知道仓库之前开发过什么需求；看到不可理解的代码可以找到当时的 Stack、当时的思考、为什么写这段代码——对历史演进过程有比较好的理解。</p>
+          <p><strong>第二个是杠杆——释放 AI 写代码的能力。AutoStep 能力——不只是 Step，是 Auto Step。</strong> 通过多维度、多 Agent 并行做广泛 Design——代码设计或行业知识设计——产出各自 Design 结果，写出相关 Step，做整体合并。Spec 也有 Review 环节（也是 AI 做的）——Review 不同 Agent 写的综合 Spec，做深刻 Review，达到我们叫 <strong>Ultra Spec</strong> 的效果。<strong>最后交付的 Spec 比之前更具体、考虑全面、质量更高。</strong></p>
+          <p>执行环节通过专家团模式做最大化并行——并行编程、并行验证。执行也需要设计<strong>护栏</strong>——不断交付海量代码，人没办法做 Review。所以结合刚上线的 <strong>Ultra Review</strong>——<strong>对每个 PR 通过异步并行方式做技术 Review</strong>。每个 Agent 有自己的 Review 视角：安全、架构破坏、未来扩展性、代码良好编写、注释完善等。</p>
+          <p>最后还有一个 Field（处于早期阶段）——结合 Code Use 能力自动复现复测阶段发现的缺陷，复现后修复，修复后录屏验证，最后提出交付 PR。这个过程跟前面 Issue 流程有一定类似度。</p>
+          <p><strong>整体效果</strong>：差不多<strong>三周左右完成所有功能开发</strong>——这个功能跟最近比较火的 Google DeepMind Five 类似。<strong>我们在 400 万行存量代码里新增 50 行代码。</strong> 当然今天代码已经不是唯一考量因素——<strong>实际 AI 写的代码可能甚至超过 400 万行</strong>。我们通过 AI 可以快速并行验证同一个 Stack、同一个想法下不同方案的实现效果，最后通过人或 AI 做最终合并和沉淀。<strong>最后绝大多数代码完全由 AI 编写。</strong></p>
+
+          <h4>新瓶颈——研发流程的失衡</h4>
+          <p>最后我抛一个小问题：<strong>工业普及之后，组织真正遇到的可能不完全是提效，而是研发流程的失衡。</strong> 原先所有软件企业的人力成本投入大多在 Coding 环节，前面设计、产品演变、后面测试发布占比不同。但今天<strong>纯 Coding 效率被提升得非常高</strong>之后，有这样几个问题：</p>
+          <ul>
+            <li><strong>Review 是个比较大的瓶颈</strong>；</li>
+            <li><strong>Agent 更多是在做局部优化</strong>；</li>
+            <li><strong>架构慢慢越来越腐化</strong>；</li>
+            <li>最后导致<strong>责任链的缺失</strong>。</li>
+          </ul>
+        </blockquote>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== Speech 4 ===== -->
+  <div class="speech" id="speech-4">
+    <div class="speech-header" onclick="toggleSpeech('speech-4')">
+      <div class="speech-num">4</div>
+      <div class="speech-title-block">
+        <div class="speech-title">快手 AI 研发数字员工平台：从局部 AI 提效到全局 AI 提效</div>
+        <div class="speech-meta">
+          <span>王硕</span><span class="sep">·</span>
+          <span>快手 AI 研发平台负责人</span><span class="sep">·</span>
+          <span>11:25–12:05</span>
+        </div>
+      </div>
+      <div class="toggle-icon">▼</div>
+    </div>
+    <div class="speech-body">
+      <div class="placeholder">
+        <div class="ph-icon">⏳</div>
+        <div><strong>纪要待补</strong></div>
+        <div style="margin-top:8px;font-size:13px;">演讲笔记和录音转写发送后即可整理追加。</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div>0522 上午 Keynote 会议纪要 · 第一天会议日程</div>
+  <div style="margin-top:6px;">
+    📄 <a href="https://docs.qq.com/markdown/DT2FjVHNFa1Nqb0xu?_fid=OacTsEkSjoLn" target="_blank">同步至腾讯文档</a>
+  </div>
+</div>
+
+<script>
+function toggleSpeech(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+function switchTab(btn, contentId) {
+  const tabs = btn.parentElement;
+  tabs.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const speechBody = btn.closest('.speech-body');
+  speechBody.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.getElementById(contentId).classList.add('active');
+}
+
+// === Key Takeaways: 自动保存到 localStorage ===
+(function() {
+  const STORAGE_KEY = 'morning-keynote-takeaways-2026-05-22';
+  const input = document.getElementById('takeaways-input');
+  const status = document.getElementById('takeaways-status');
+  if (!input || !status) return;
+
+  // 还原
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      input.value = saved;
+      status.textContent = '已保存';
+      status.classList.add('saved');
+    }
+  } catch (e) {}
+
+  let timer = null;
+  input.addEventListener('input', function() {
+    status.textContent = '正在输入…';
+    status.classList.remove('saved');
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      try {
+        localStorage.setItem(STORAGE_KEY, input.value);
+        const time = new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+        status.textContent = '已自动保存 · ' + time;
+        status.classList.add('saved');
+      } catch (e) {
+        status.textContent = '保存失败';
+      }
+    }, 600);
+  });
+})();
+</script>
+
+</body>
+</html>
