@@ -31,6 +31,7 @@ html, body {
   font-size: 15px;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
 }
 body {
   background:
@@ -457,6 +458,113 @@ body {
   opacity: 0.6;
 }
 
+/* === Side Nav === */
+.side-nav {
+  position: fixed;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  z-index: 100;
+  background: rgba(17, 24, 53, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 180px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.side-nav.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+}
+.side-nav-title {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--text-mute);
+  text-transform: uppercase;
+  padding: 4px 12px 6px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+.side-nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 7px;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 13px;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.side-nav a:hover {
+  background: var(--bg-card-2);
+  color: var(--text);
+}
+.side-nav a.active {
+  background: rgba(108, 140, 255, 0.15);
+  color: var(--accent);
+  font-weight: 500;
+}
+.side-nav a .nav-num {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+.side-nav a.active .nav-num {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-color: transparent;
+  color: white;
+}
+.side-nav-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 6px 8px;
+}
+.back-to-top {
+  cursor: pointer;
+}
+
+/* Mobile nav: 折叠为浮动按钮 */
+.nav-toggle {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(108, 140, 255, 0.4);
+  z-index: 101;
+  align-items: center;
+  justify-content: center;
+}
+
 /* === Footer === */
 .footer {
   text-align: center;
@@ -469,6 +577,29 @@ body {
 .footer a { color: var(--accent); text-decoration: none; }
 
 /* === Responsive === */
+@media (max-width: 1240px) {
+  .side-nav { right: 12px; min-width: 160px; }
+}
+@media (max-width: 1080px) {
+  .side-nav {
+    top: auto;
+    bottom: 80px;
+    right: 20px;
+    transform: none;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  .side-nav.visible { transform: none; }
+  .nav-toggle { display: flex; }
+  .side-nav:not(.mobile-open) {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .side-nav.mobile-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
 @media (max-width: 720px) {
   .hero { padding: 40px 20px 32px; }
   .hero h1 { font-size: 26px; }
@@ -484,7 +615,22 @@ body {
 </head>
 <body>
 
-<div class="hero">
+<!-- ===== Side Navigation ===== -->
+<button class="nav-toggle" id="nav-toggle" aria-label="目录">☰</button>
+<nav class="side-nav" id="side-nav">
+  <div class="side-nav-title">目录</div>
+  <a href="#agenda" data-target="agenda">📅 议程</a>
+  <a href="#takeaways" data-target="takeaways">✦ Key Takeaways</a>
+  <div class="side-nav-divider"></div>
+  <a href="#speech-1" data-target="speech-1"><span class="nav-num">1</span>评测到落地</a>
+  <a href="#speech-2" data-target="speech-2"><span class="nav-num">2</span>Agentic Patterns</a>
+  <a href="#speech-3" data-target="speech-3"><span class="nav-num">3</span>AI Coding 演进</a>
+  <a href="#speech-4" data-target="speech-4"><span class="nav-num">4</span>快手数字员工</a>
+  <div class="side-nav-divider"></div>
+  <a href="#top" class="back-to-top">↑ 回到顶部</a>
+</nav>
+
+<div class="hero" id="top">
   <div class="badge">FIRST DAY · MORNING KEYNOTE</div>
   <h1>0522 上午 Keynote 会议纪要</h1>
   <div class="subtitle">第一天会议日程 · 4 场主题演讲完整纪要</div>
@@ -498,7 +644,7 @@ body {
 <div class="container">
 
   <!-- ===== 议程 ===== -->
-  <div class="agenda">
+  <div class="agenda" id="agenda">
     <h2 class="section-title">上午全部议程</h2>
     <div class="timeline">
       <div class="timeline-item">
@@ -548,7 +694,7 @@ body {
   </div>
 
   <!-- ===== Key Takeaways (整体总结) ===== -->
-  <div class="takeaways">
+  <div class="takeaways" id="takeaways">
     <div class="takeaways-header">
       <div class="takeaways-title">
         Key Takeaways
@@ -556,11 +702,11 @@ body {
       </div>
       <div class="takeaways-status" id="takeaways-status">尚未编辑</div>
     </div>
-    <textarea id="takeaways-input" placeholder="在此记录你对本场会议的整体洞察、跨 Speech 的共性观察、或可执行的下一步行动……（自动保存到本地浏览器）"></textarea>
+    <textarea id="takeaways-input" placeholder="参会中，待会后统一补充……"></textarea>
   </div>
 
   <!-- ===== Speech 列表 ===== -->
-  <h2 class="section-title">演讲纪要</h2>
+  <h2 class="section-title" id="speeches">演讲纪要</h2>
 
   <!-- ===== Speech 1 ===== -->
   <div class="speech open" id="speech-1">
@@ -1607,9 +1753,6 @@ body {
 
 <div class="footer">
   <div>0522 上午 Keynote 会议纪要 · 第一天会议日程</div>
-  <div style="margin-top:6px;">
-    📄 <a href="https://docs.qq.com/markdown/DT2FjVHNFa1Nqb0xu?_fid=OacTsEkSjoLn" target="_blank">同步至腾讯文档</a>
-  </div>
 </div>
 
 <script>
@@ -1659,6 +1802,84 @@ function switchTab(btn, contentId) {
       }
     }, 600);
   });
+})();
+
+// === Side Navigation: 显示/隐藏 + 滚动高亮 + 移动端切换 ===
+(function() {
+  const sideNav = document.getElementById('side-nav');
+  const toggle = document.getElementById('nav-toggle');
+  if (!sideNav) return;
+
+  const navLinks = sideNav.querySelectorAll('a[data-target]');
+  const sections = Array.from(navLinks).map(a => ({
+    id: a.dataset.target,
+    el: document.getElementById(a.dataset.target),
+    link: a
+  })).filter(s => s.el);
+
+  // 滚动一定距离后显示导航
+  let lastScroll = 0;
+  function onScroll() {
+    const y = window.scrollY;
+    if (y > 200) {
+      sideNav.classList.add('visible');
+    } else {
+      sideNav.classList.remove('visible');
+      sideNav.classList.remove('mobile-open');
+    }
+
+    // 高亮当前可视的 section
+    let activeIdx = 0;
+    for (let i = 0; i < sections.length; i++) {
+      const rect = sections[i].el.getBoundingClientRect();
+      if (rect.top <= 120) {
+        activeIdx = i;
+      } else {
+        break;
+      }
+    }
+    navLinks.forEach((a, i) => a.classList.toggle('active', i === activeIdx));
+
+    lastScroll = y;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // 点击 nav-link 时，如果对应 speech 是折叠的，自动展开
+  navLinks.forEach(a => {
+    a.addEventListener('click', function() {
+      const target = document.getElementById(a.dataset.target);
+      if (target && target.classList.contains('speech') && !target.classList.contains('open')) {
+        target.classList.add('open');
+      }
+      // 移动端：点击后关闭
+      sideNav.classList.remove('mobile-open');
+    });
+  });
+
+  // 移动端切换按钮
+  if (toggle) {
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      sideNav.classList.toggle('mobile-open');
+    });
+    // 点击外部关闭
+    document.addEventListener('click', function(e) {
+      if (!sideNav.contains(e.target) && e.target !== toggle) {
+        sideNav.classList.remove('mobile-open');
+      }
+    });
+  }
+
+  // 回顶部
+  const backToTop = sideNav.querySelector('.back-to-top');
+  if (backToTop) {
+    backToTop.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      sideNav.classList.remove('mobile-open');
+    });
+  }
 })();
 </script>
 
