@@ -312,6 +312,80 @@ body {
   transition: color 0.3s;
 }
 .takeaways-status.saved { color: var(--accent-3); }
+
+/* === Takeaway 卡片 === */
+.takeaway-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 6px;
+}
+.takeaway-card {
+  display: flex;
+  gap: 18px;
+  background: rgba(11, 16, 32, 0.45);
+  border: 1px solid rgba(108, 140, 255, 0.18);
+  border-radius: 10px;
+  padding: 18px 20px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.takeaway-card:hover {
+  border-color: rgba(108, 140, 255, 0.4);
+  background: rgba(11, 16, 32, 0.6);
+}
+.takeaway-num {
+  font-family: -apple-system, "SF Mono", Menlo, monospace;
+  font-size: 26px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -1px;
+  line-height: 1;
+  padding-top: 2px;
+  flex-shrink: 0;
+  min-width: 38px;
+}
+.takeaway-body {
+  flex: 1;
+}
+.takeaway-title {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.takeaway-body p {
+  margin: 6px 0;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-dim);
+}
+.takeaway-body p strong {
+  color: var(--text);
+}
+
+/* === 个人补充输入框 === */
+.takeaways-personal {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(108, 140, 255, 0.2);
+}
+.takeaways-personal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.takeaways-personal-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dim);
+  letter-spacing: 0.3px;
+}
 .takeaways textarea {
   width: 100%;
   min-height: 110px;
@@ -745,11 +819,37 @@ body {
     <div class="takeaways-header">
       <div class="takeaways-title">
         Key Takeaways
-        <span class="takeaways-subtitle">本场会议的整体总结与思考</span>
+        <span class="takeaways-subtitle">基于 8 场分享提炼的 PM 视角与小团队 AI Native 启发</span>
       </div>
-      <div class="takeaways-status" id="takeaways-status">尚未编辑</div>
     </div>
-    <textarea id="takeaways-input" placeholder="参会中，待会后统一补充……"></textarea>
+
+    <div class="takeaway-cards">
+      <div class="takeaway-card">
+        <div class="takeaway-num">01</div>
+        <div class="takeaway-body">
+          <div class="takeaway-title">知识工程是企业 AI 真正的护城河 —— 也是小团队的相对优势</div>
+          <p>把每一次"为什么这样设计"的对话、每一次"踩坑—修复"的经验、每一份 Spec 的演进，<strong>全部沉淀到结构化、可被 Agent 调用的知识库</strong>。每写一行代码、每做一次决策都自动入库——持续一段时间后，AI 比任何新成员都更懂你的业务，因为你的知识沉淀<strong>干净、覆盖完整、零腐化</strong>。</p>
+          <p>这是小团队相对大厂的真实优势：<strong>没有历史包袱、没有跨部门沟通损耗、第一天就能把"知识自动化"机制内建到工作流里</strong>。需要去探索的是团队内部的知识沉淀机制与路径——什么入口录入、什么形式存储、谁来审定、怎么被 Agent 调用。</p>
+        </div>
+      </div>
+
+      <div class="takeaway-card">
+        <div class="takeaway-num">02</div>
+        <div class="takeaway-body">
+          <div class="takeaway-title">局部提效会被下游耗散 —— 以"需求"为粒度做度量</div>
+          <p>不要被"代码生成率"这类工具指标骗了。<strong>盯需求交付周期、需求级 AI 渗透率、闭环时间</strong>——以"整个需求"而非"单个任务"为度量单位。</p>
+          <p><strong>整条流水线最慢的那一段决定团队产能。</strong>如果前端用 AI 飞快、后端测试跟不上，前端的快也没用。在小团队里更明显——5 个人就是一条流水线，任何一个环节卡住就是整个团队卡住。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="takeaways-personal">
+      <div class="takeaways-personal-header">
+        <div class="takeaways-personal-title">📝 我的补充思考</div>
+        <div class="takeaways-status" id="takeaways-status">尚未编辑</div>
+      </div>
+      <textarea id="takeaways-input" placeholder="在此记录你自己的延伸思考、跨 Speech 的连接、或可执行的下一步……（自动保存到本地浏览器）"></textarea>
+    </div>
   </div>
 
   <!-- ===== Speech 列表 ===== -->
